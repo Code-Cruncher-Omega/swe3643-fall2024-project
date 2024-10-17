@@ -9,10 +9,9 @@ class CalculatorLogicTest {
     // Accuracy to the 12th decimal, not including 13th
 
 
-    //preq-UNIT-TEST-2
     @Test
     void computeSampleStandardDeviation_validList_returnsDouble() {
-
+        //preq-UNIT-TEST-2
         // Arrange
         double [] valuesList = {9.0, 6.0, 8.0, 5.0, 7.0};
         double expectedResult = 1.5811388300841898;
@@ -31,7 +30,7 @@ class CalculatorLogicTest {
 
     @Test
     void computeSampleStandardDeviation_listOfZeroes_returnsZero() {
-
+        //preq-UNIT-TEST-2
         // Arrange
         final double EXPECTED = 0.0;
 
@@ -51,7 +50,7 @@ class CalculatorLogicTest {
 
     @Test
     void computeSampleStandardDeviation_listOfOneSample_throwException() {
-
+        //preq-UNIT-TEST-2
         // Arrange
         final String EXPECTED = "Sample size must be greater than or equal to two";
         String result = "";
@@ -69,7 +68,7 @@ class CalculatorLogicTest {
 
     @Test
     void computeSampleStandardDeviation_emptyList_throwException() {
-
+        //preq-UNIT-TEST-2
         // Arrange
         final String EXPECTED = "Sample size must be greater than or equal to two";
         String result = "";
@@ -85,10 +84,9 @@ class CalculatorLogicTest {
         assertTrue(result.contains(EXPECTED));
     }
 
-    //preq-UNIT-TEST-3
     @Test
     void computePopulationStandardDeviation_validList_returnsDouble() {
-
+        //preq-UNIT-TEST-3
         // Arrange
         final double EXPECTED = 2.9832867780352594;
 
@@ -108,7 +106,7 @@ class CalculatorLogicTest {
 
     @Test
     void computePopulationStandardDeviation_listOfZeroes_returnsZero() {
-
+        //preq-UNIT-TEST-3
         // Arrange
         final double EXPECTED = 0.0;
 
@@ -128,7 +126,7 @@ class CalculatorLogicTest {
 
     @Test
     void computePopulationStandardDeviation_emptyList_throwException() {
-
+        //preq-UNIT-TEST-3
         // Arrange
         final String EXPECTED = "Population size must be greater than or equal to one";
         String result = "";
@@ -144,10 +142,9 @@ class CalculatorLogicTest {
         assertTrue(result.contains(EXPECTED));
     }
 
-    //preq-UNIT-TEST-4
     @Test
     void computeMean_validList_returnsDouble() {
-
+        //preq-UNIT-TEST-4
         // Arrange
         final double EXPECTED = 7.0;
 
@@ -163,7 +160,7 @@ class CalculatorLogicTest {
 
     @Test
     void computeMean_emptyList_returnsZero() {
-
+        //preq-UNIT-TEST-4
         // Arrange
         final double EXPECTED = 0.0;
         double result;
@@ -175,10 +172,9 @@ class CalculatorLogicTest {
         assertEquals(EXPECTED, result);
     }
 
-    //preq-UNIT-TEST-5
     @Test
     void computeZScore_validInput_returnZ() {
-
+        //preq-UNIT-TEST-5
         // Arrange
         final double EXPECTED = 2.846049894151541;
         double result = Double.NEGATIVE_INFINITY;
@@ -196,7 +192,7 @@ class CalculatorLogicTest {
 
     @Test
     void computeZScore_missingParameter_throwException() {
-
+        //preq-UNIT-TEST-5
         // Arrange
         final String EXPECTED = "Missing one or more parameters";
         String valueResult = "", meanResult = "", standardDeviationResult = "";
@@ -227,7 +223,7 @@ class CalculatorLogicTest {
 
     @Test
     void computeZScore_meanIsZero_returnZ() {
-
+        //preq-UNIT-TEST-5
         // Arrange
         final double EXPECTED = 7.285974499089253;
         double result = Double.NEGATIVE_INFINITY;
@@ -243,10 +239,9 @@ class CalculatorLogicTest {
         assertEquals(EXPECTED, result);
     }
 
-    //preq-UNIT-TEST-6
     @Test
     void computeSingleLineRegressionFormula_validInput_returnMB() {
-
+        //preq-UNIT-TEST-6
         // Arrange
         final double M = 61.272186542107434;
         final double B = -39.061955918838656;
@@ -268,7 +263,7 @@ class CalculatorLogicTest {
 
     @Test
     void computeSingleLineRegressionFormula_emptyList_throwException() {
-
+        //preq-UNIT-TEST-6
         // Arrange
         final String EXPECTED = "Invalid input";
 
@@ -288,7 +283,7 @@ class CalculatorLogicTest {
 
     @Test
     void computeSingleLineRegressionFormula_listOfEqualXValues_throwException() {
-
+        //preq-UNIT-TEST-6
         // Arrange
         final String EXPECTED = "Cannot divide by zero - try changing the values of x in the inputted pairs";
         final double[] VALUES = {12.0, 0.0, 12.0, 9.4, 12.0, 8.8, 12.0, 12.3};
@@ -309,7 +304,7 @@ class CalculatorLogicTest {
 
     @Test
     void computeSingleLineRegressionFormula_listOfEqualYValues_returnMB() {
-
+        //preq-UNIT-TEST-6
         // Assert
         final double M = 0.0;
         final double B = 1.0;
@@ -331,7 +326,7 @@ class CalculatorLogicTest {
 
     @Test
     void computeSingleLineRegressionFormula_listOfZeroPairs_throwException() {
-
+        //preq-UNIT-TEST-6
         // Arrange
         final String EXPECTED = "Cannot divide by zero - try changing the values of x in the inputted pairs";
         final double[] VALUES = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
@@ -350,10 +345,9 @@ class CalculatorLogicTest {
         assertTrue(result.contains(EXPECTED));
     }
 
-    //preq-UNIT-TEST-7
     @Test
     void predictYFromLinearRegressionFormula_validInput_returnY() {
-
+        //preq-UNIT-TEST-7
         // Arrange
         final double EXPECTED = 54.990850423296244;
 
@@ -375,7 +369,7 @@ class CalculatorLogicTest {
 
     @Test
     void predictYFromLinearRegressionFormula_missingParameter_throwException() {
-
+        //preq-UNIT-TEST-7
         // Arrange
         final String EXPECTED = "Missing one or more parameters";
         String xResult = "", mResult = "", bResult = "";
