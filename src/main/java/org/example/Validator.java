@@ -4,27 +4,38 @@ public class Validator {
 
     private Validator() {}
 
-    private double[] parseStringToDoubleArray(String text) throws Exception {
+    private String[] splitString(String text) throws Exception {
         boolean comma = text.contains(",");
         boolean newLine = text.contains("\n");
 
-        String[] snippets;
+        String[] pieces = new String[0];
 
         if(comma && !newLine) {
-            snippets = text.split(",");
+            pieces = text.split(",");
         } else if(!comma && newLine) {
-            snippets = text.split("\n");
-        } else if(!comma) {
-            snippets = new String[0];
-        } else
+            pieces = text.split("\n");
+        } else if(comma) {
             throw new Exception("Invalid input format");
+        }
 
-        double[] values = new double[snippets.length];
-        for(int i = 0 ; i < snippets.length ; i++) {
-            values[i] = Double.parseDouble(snippets[i]);
+        for(int i = 0 ; i < pieces.length ; i++) {
+            pieces[i] = pieces[i].replace(" ", "");
+        }
+
+        return pieces;
+    }
+
+    private double[] parseStringArrayToDoubleArray(String[] elements) {
+        double[] values = new double[elements.length];
+        for(int i = 0 ; i < elements.length ; i++) {
+            if(elements[i].isEmpty()) {
+                values[i] = Double.NEGATIVE_INFINITY;   // Negative infinity used to indicate that a parameter was left empty
+            }   else {
+                values[i] = Double.parseDouble(elements[i]);
+            }
         }
         return values;
     }
 
-    public String 
+
 }
