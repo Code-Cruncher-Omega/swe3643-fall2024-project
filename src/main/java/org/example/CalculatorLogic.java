@@ -58,7 +58,7 @@ public class CalculatorLogic {
     public static double computeZScore(double value, double mean, double standardDeviation) throws Exception {
         //preq-LOGIC-6
         if(value == Double.NEGATIVE_INFINITY || mean == Double.NEGATIVE_INFINITY || standardDeviation == Double.NEGATIVE_INFINITY) {
-            throw new Exception("Missing one or more parameters");
+            throw new Exception("Missing one or more parameters - insert the values in the following order \"value, mean, standard deviation\"");
         }
         return (value - mean) / standardDeviation;
     }
@@ -92,7 +92,7 @@ public class CalculatorLogic {
         double denominator = xAverage * xAverage - xSquaredAverage;
 
         if(denominator == 0) {
-            throw new Exception("Cannot divide by zero - try changing the values of x in the inputted pairs");
+            throw new Exception("Cannot divide by zero - try making the values of x in the inputted pairs more distinct");
         }
 
         double m = (xAverage * yAverage - xyProductAverage) / denominator;
@@ -104,7 +104,7 @@ public class CalculatorLogic {
     public static double predictYFromLinearRegressionFormula(double x, double m, double b) throws Exception {
         //preq-LOGIC-8
         if(x == Double.NEGATIVE_INFINITY || m == Double.NEGATIVE_INFINITY || b == Double.NEGATIVE_INFINITY) {
-            throw new Exception("Missing one or more parameters");
+            throw new Exception("Missing one or more parameters - insert the values in the following order \"x, m, b\"");
         }
         return x * m + b;
     }
