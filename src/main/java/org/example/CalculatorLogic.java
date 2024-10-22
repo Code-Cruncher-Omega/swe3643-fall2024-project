@@ -5,10 +5,6 @@ public class CalculatorLogic {
     private CalculatorLogic() {}    // Static class
 
     public static double computeStandardDeviation(double[] values, boolean isPopulation) throws Exception {
-        if(values == null || values.length == 0) {
-            throw new Exception("valuesList parameter cannot be null or empty");
-        }
-
         double mean = computeMean(values);
         double squareOfDifference = computeSquareOfDifferences(values, mean);
         double variance = computeVariance(squareOfDifference, values.length, isPopulation);
@@ -26,10 +22,10 @@ public class CalculatorLogic {
         return computeStandardDeviation(values, true);
     }
 
-    public static double computeMean(double[] values) throws Exception {
+    public static double computeMean(double[] values) {
         //preq-LOGIC-5
-        if(values == null || values.length == 0) {
-            throw new Exception("valuesList parameter cannot be null or empty");
+        if(values.length == 0) {
+            return 0.0;
         }
 
         double sumAccumulator = 0.0;
@@ -39,9 +35,9 @@ public class CalculatorLogic {
     }
 
     public static double computeSquareOfDifferences(double[] values, double mean) {
-        double squareAccumulator = 0;
+        double squareAccumulator = 0.0;
         for (double value : values)
-            squareAccumulator += (value * value) - 2 * (value * mean) + (mean * mean);  //fancy for (value - mean)^2
+            squareAccumulator += Math.pow(value - mean, 2.0);
         return squareAccumulator;
     }
 
@@ -49,44 +45,67 @@ public class CalculatorLogic {
         if (!isPopulation)
             numValues--;
 
-        if (numValues < 1)
-            throw new Exception("numValues is too low (sample size must be >= 2, population size must be >= 1)");
+        if (numValues < 1) {
+            if(isPopulation) {
+                throw new Exception("Population size must be greater than or equal to one - input more values on separate lines");
+            }
+            throw new Exception("Sample size must be greater than or equal to two - input more values on separate lines");
+        }
 
         return squareOfDifferences / numValues;
     }
 
-    public static double computeZScore(double value, double mean, double stdDev) {
+    public static double computeZScore(double value, double mean, double standardDeviation) throws Exception {
         //preq-LOGIC-6
-        return (value - mean) / stdDev;
+        if(value == Double.NEGATIVE_INFINITY || mean == Double.NEGATIVE_INFINITY || standardDeviation == Double.NEGATIVE_INFINITY) {
+            throw new Exception("Missing one or more parameters - insert the values in the following order \"value, mean, standard deviation\"");
+        }
+        return (value - mean) / standardDeviation;
     }
 
-    public static double[] computeSingleLineRegressionFormula(double[][] pairs) {
+    public static double[] computeSingleLineRegressionFormula(double[] pairs) throws Exception {
         //preq-LOGIC-7
-        double xAvg = 0.0, yAvg = 0.0, xyProductAvg = 0.0, xSquaredAvg = 0.0;
 
-        for(double[] pair : pairs) {
-            double x = pair[0];
-            double y = pair[1];
-
-            xAvg += x;
-            yAvg += y;
-            xyProductAvg += x * y;
-            xSquaredAvg += x * x;
+        if(pairs.length == 0) {
+            throw new Exception("Invalid input - insert at least two distinct x-value and y-value pairs");
         }
 
-        xAvg /= pairs.length;
-        yAvg /= pairs.length;
-        xyProductAvg /= pairs.length;
-        xSquaredAvg /= pairs.length;
+        double xAverage = 0.0, yAverage = 0.0, xyProductAverage = 0.0, xSquaredAverage = 0.0;
 
-        double m = (xAvg * yAvg - xyProductAvg) / (xAvg * xAvg - xSquaredAvg);
-        double b = yAvg - m * xAvg;
+        for(int i = 0 ; i < pairs.length ; i += 2) {
+            double x = pairs[i];
+            double y = pairs[i + 1];
+
+            xAverage += x;
+            yAverage += y;
+            xyProductAverage += x * y;
+            xSquaredAverage += x * x;
+        }
+
+        int numberOfPairs = pairs.length / 2;
+
+        xAverage /= numberOfPairs;
+        yAverage /= numberOfPairs;
+        xyProductAverage /= numberOfPairs;
+        xSquaredAverage /= numberOfPairs;
+
+        double denominator = xAverage * xAverage - xSquaredAverage;
+
+        if(denominator == 0) {
+            throw new Exception("Cannot divide by zero - try making the values of x in the inputted pairs more distinct");
+        }
+
+        double m = (xAverage * yAverage - xyProductAverage) / denominator;
+        double b = yAverage - m * xAverage;
 
         return new double[] {m, b};
     }
 
-    public static double predictYFromLinearRegressionFormula(double x, double m, double b) {
+    public static double predictYFromLinearRegressionFormula(double x, double m, double b) throws Exception {
         //preq-LOGIC-8
+        if(x == Double.NEGATIVE_INFINITY || m == Double.NEGATIVE_INFINITY || b == Double.NEGATIVE_INFINITY) {
+            throw new Exception("Missing one or more parameters - insert the values in the following order \"x, m, b\"");
+        }
         return x * m + b;
     }
 }
