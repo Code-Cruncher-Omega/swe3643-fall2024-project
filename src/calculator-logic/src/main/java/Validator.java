@@ -1,4 +1,4 @@
-package org.example;
+package src.main.java;
 
 public class Validator {
 
