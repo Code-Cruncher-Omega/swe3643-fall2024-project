@@ -1,3 +1,5 @@
+package org.example;
+
 public class CalculationResult {
     private double result;
     private boolean isSuccess;

@@ -1,3 +1,5 @@
+package org.example;
+
 public class CalculatorLogic {
 
     private CalculatorLogic() {}    // Static class
