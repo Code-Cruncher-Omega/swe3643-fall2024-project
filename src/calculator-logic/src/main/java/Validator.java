@@ -1,5 +1,3 @@
-package org.example;
-
 public class Validator {
 
     private Validator() {}

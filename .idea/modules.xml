@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/swe3643-fall2024-project.iml" filepath="$PROJECT_DIR$/swe3643-fall2024-project.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/main/swe3643-fall2024-project-logic.iml" filepath="$PROJECT_DIR$/src/main/swe3643-fall2024-project-logic.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/test/swe3643-fall2024-project-tests.iml" filepath="$PROJECT_DIR$/src/test/swe3643-fall2024-project-tests.iml" />
     </modules>
   </component>
 </project>
