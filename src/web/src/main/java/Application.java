@@ -1,5 +1,3 @@
-package web.src.main.java;
-
 import java.util.Arrays;
 
 import org.springframework.boot.CommandLineRunner;
