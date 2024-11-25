@@ -14,4 +14,11 @@ public class AppController {
         return "greeting";
     }
 
+    @GetMapping("/output")
+    public String output(@RequestParam(name="output", required=false, defaultValue="Enter values below, then select an operation") String output, Model model) {
+
+        model.addAttribute("output", output);
+        return "index";
+    }
+
 }
