@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Calculator</title>
     <style>
         body {
@@ -68,6 +68,7 @@
           height: 50px;
           width: 454px;
           background-color: #FFECD7;
+          color: #000000;
           margin: auto;
         }
         .text-box {
@@ -81,44 +82,42 @@
 </head>
 <body>
 <div class="app-container">
-    <form action="">
-        <form>
-            <table style="width:100%; position:relative; top:8px;">
-                <tr>
-                    <td><h1 style="font-family:sans-serif; font-size:26px; font-weight:normal;">Calculator</h1></td>
-                    <td><button style="width: 95%;" type="reset" value="Clear" >Clear</button></td>
-                </tr>
-            </table>
-            <div class="output-box"> <!--Make output box color changeable-->
-                <h3>${output}</h3> <!--Assign the text here to a variable-->
-            </div>
-            <h4>Values</h4><br>
-            <label for="values"></label><textarea class="text-box" id="values" name="values"></textarea> <!--Assign input to a variable-->
-        </form>
+    <form method="get" action="/">
+        <table style="width:100%; position:relative; top:8px;">
+            <tr>
+                <td><h1 style="font-family:sans-serif; font-size:26px; font-weight:normal;">Calculator</h1></td>
+                <td><button style="width: 95%;" type="reset" value="clear" >Clear</button></td>
+            </tr>
+        </table>
+        <div class="output-box" th:style="${isError} ? 'background-color:#B70F0A;color:#FFFFFF;' : 'background-color: #FFECD7;color: #000000;'">
+            <h3 th:text="${output}"></h3>
+        </div>
+        <h4>Values</h4><br>
+        <label for="values"></label><textarea class="text-box" id="values" name="values"><span th:text="${values}" th:remove="tag"></textarea> <!--Assign input to a variable-->
         <table style="width:100%; left: 9px;border-spacing: 9px;">
             <tr>
                 <th><h2>Descriptive Statistics</h2></th>
             </tr>
             <tr style="position:relative; top:10px;">
-                <th><button type="submit" value="STDSample">Compute Sample Standard Deviation | one value per line</button></th>
+                <th><button type="submit" value="0" name="method">Compute Sample Standard Deviation | one value per line</button></th>
             </tr>
             <tr style="position:relative; top:10px;">
-                <th><button type="submit" value="STDPopulation">Compute Population Standard Deviation | one value per line</button></th>
+                <th><button type="submit" value="1" name="method">Compute Population Standard Deviation | one value per line</button></th>
             </tr>
             <tr style="position:relative; top:10px;">
-                <th><button type="submit" value="Mean">Compute Mean | one value per line</button></th>
+                <th><button type="submit" value="2" name="method">Compute Mean | one value per line</button></th>
             </tr>
             <tr style="position:relative; top:10px;">
-                <th><button type="submit" value="ZScore">Compute Z Score | value, mean, stdDev on one line</button></th>
+                <th><button type="submit" value="3" name="method">Compute Z Score | value, mean, stdDev on one line</button></th>
             </tr>
             <tr style="position:relative; top:-6px;">
                 <th><h2>Single Linear Regression</h2></th>
             </tr>
             <tr>
-                <th><button type="submit" value="SLRFormula">Compute Single Linear Regression Formula | one x,y pair per line</button></th>
+                <th><button type="submit" value="4" name="method">Compute Single Linear Regression Formula | one x,y pair per line</button></th>
             </tr>
             <tr>
-                <th><button type="submit" value="YFormula">Compute Y from Linear Regression Formula | x, m , b on one line</button></th>
+                <th><button type="submit" value="5" name="method">Compute Y from Linear Regression Formula | x, m , b on one line</button></th>
             </tr>
         </table>
     </form>
