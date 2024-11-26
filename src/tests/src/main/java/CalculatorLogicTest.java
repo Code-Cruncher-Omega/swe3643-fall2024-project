@@ -1,3 +1,4 @@
+import org.example.CalculatorLogic;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -175,11 +176,12 @@ class CalculatorLogicTest {
         //preq-UNIT-TEST-5
         // Arrange
         final double EXPECTED = 2.846049894151541;
+        final double[] input = {11.5, 7, 1.5811388300841898};
         double result = Double.NEGATIVE_INFINITY;
 
         // Act
         try {
-            result = CalculatorLogic.computeZScore(11.5, 7, 1.5811388300841898);
+            result = CalculatorLogic.computeZScore(input);
         } catch(Exception e) {
             fail();
         }
@@ -192,23 +194,27 @@ class CalculatorLogicTest {
     void computeZScore_missingParameter_throwException() {
         //preq-UNIT-TEST-5
         // Arrange
-        final String EXPECTED = "Missing one or more parameters";
+        final String EXPECTED = "Invalid input\n";
+        double[] input;
         String valueResult = "", meanResult = "", standardDeviationResult = "";
 
         // Act
         try {
-            CalculatorLogic.computeZScore(Double.NEGATIVE_INFINITY, 0.0, 1.0);
+            input = new double[] {Double.NEGATIVE_INFINITY, 0.0, 1.0};
+            CalculatorLogic.computeZScore(input);
             fail();
         } catch(Exception e) {
             valueResult = e.getMessage();
         }
         try {
-            CalculatorLogic.computeZScore(0.0, Double.NEGATIVE_INFINITY, 1.0);
+            input = new double[] {0.0, Double.NEGATIVE_INFINITY, 1.0};
+            CalculatorLogic.computeZScore(input);
         } catch(Exception e) {
             meanResult = e.getMessage();
         }
         try {
-            CalculatorLogic.computeZScore(0.0, 0.0, Double.NEGATIVE_INFINITY);
+            input = new double[] {0.0, 0.0, Double.NEGATIVE_INFINITY};
+            CalculatorLogic.computeZScore(input);
         } catch(Exception e) {
             standardDeviationResult = e.getMessage();
         }
@@ -224,11 +230,12 @@ class CalculatorLogicTest {
         //preq-UNIT-TEST-5
         // Arrange
         final double EXPECTED = 7.285974499089253;
+        final double[] input = {12, 0, 1.647};
         double result = Double.NEGATIVE_INFINITY;
 
         // Act
         try {
-            result = CalculatorLogic.computeZScore(12, 0, 1.647);
+            result = CalculatorLogic.computeZScore(input);
         } catch(Exception e) {
             fail();
         }
@@ -283,7 +290,7 @@ class CalculatorLogicTest {
     void computeSingleLineRegressionFormula_listOfEqualXValues_throwException() {
         //preq-UNIT-TEST-6
         // Arrange
-        final String EXPECTED = "Cannot divide by zero";
+        final String EXPECTED = "cannot divide by zero";
         final double[] VALUES = {12.0, 0.0, 12.0, 9.4, 12.0, 8.8, 12.0, 12.3};
 
         String result = "";
@@ -326,7 +333,7 @@ class CalculatorLogicTest {
     void computeSingleLineRegressionFormula_listOfZeroPairs_throwException() {
         //preq-UNIT-TEST-6
         // Arrange
-        final String EXPECTED = "Cannot divide by zero";
+        final String EXPECTED = "cannot divide by zero";
         final double[] VALUES = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 
         String result = "";
@@ -369,7 +376,7 @@ class CalculatorLogicTest {
     void predictYFromLinearRegressionFormula_missingParameter_throwException() {
         //preq-UNIT-TEST-7
         // Arrange
-        final String EXPECTED = "Missing one or more parameters";
+        final String EXPECTED = "Invalid input\n";
         String xResult = "", mResult = "", bResult = "";
 
         // Act

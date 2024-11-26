@@ -89,11 +89,11 @@
                 <td><button style="width: 95%;" type="reset" value="clear" >Clear</button></td>
             </tr>
         </table>
-        <div class="output-box" th:style="${isError} ? 'background-color:#B70F0A;color:#FFFFFF;' : 'background-color: #FFECD7;color: #000000;'">
-            <h3 th:text="${output}"></h3>
+        <div class="output-box" th:style="${isError} ? 'background-color:#B70F0A;color:#FFFFFF;'">
+            <pre><h3 th:text="${output}"></h3></pre>
         </div>
         <h4>Values</h4><br>
-        <label for="values"></label><textarea class="text-box" id="values" name="values"><span th:text="${values}" th:remove="tag"></textarea> <!--Assign input to a variable-->
+        <label for="values"></label><textarea class="text-box" id="values" name="values" th:inline="text">[[${values}]]</textarea> <!--Assign input to a variable-->
         <table style="width:100%; left: 9px;border-spacing: 9px;">
             <tr>
                 <th><h2>Descriptive Statistics</h2></th>

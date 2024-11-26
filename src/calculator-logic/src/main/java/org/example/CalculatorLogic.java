@@ -1,3 +1,5 @@
+package org.example;
+
 public class CalculatorLogic {
 
     private CalculatorLogic() {}    // Static class
@@ -45,18 +47,21 @@ public class CalculatorLogic {
 
         if (numValues < 1) {
             if(isPopulation) {
-                throw new Exception("Population size must be greater than or equal to one - input more values on separate lines");
+                throw new Exception("Invalid input\nPopulation size must be greater than or equal to one");
             }
-            throw new Exception("Sample size must be greater than or equal to two - input more values on separate lines");
+            throw new Exception("Invalid input\nSample size must be greater than or equal to two");
         }
 
         return squareOfDifferences / numValues;
     }
 
-    public static double computeZScore(double value, double mean, double standardDeviation) throws Exception {
+    public static double computeZScore(double[] input) throws Exception {
         //preq-LOGIC-6
+        double value = input[0];
+        double mean = input[1];
+        double standardDeviation = input[2];
         if(value == Double.NEGATIVE_INFINITY || mean == Double.NEGATIVE_INFINITY || standardDeviation == Double.NEGATIVE_INFINITY) {
-            throw new Exception("Missing one or more parameters - insert the values in the following order \"value, mean, standard deviation\"");
+            throw new Exception("Invalid input\ninsert the values in the following order \"value, mean, standard deviation\"");
         }
         return (value - mean) / standardDeviation;
     }
@@ -65,7 +70,7 @@ public class CalculatorLogic {
         //preq-LOGIC-7
 
         if(pairs.length == 0) {
-            throw new Exception("Invalid input - insert at least two distinct x-value and y-value pairs");
+            throw new Exception("Invalid input\ninsert at least two distinct x-value and y-value pairs");
         }
 
         double xAverage = 0.0, yAverage = 0.0, xyProductAverage = 0.0, xSquaredAverage = 0.0;
@@ -90,7 +95,7 @@ public class CalculatorLogic {
         double denominator = xAverage * xAverage - xSquaredAverage;
 
         if(denominator == 0) {
-            throw new Exception("Cannot divide by zero - try making the values of x in the inputted pairs more distinct");
+            throw new Exception("Error\ncannot divide by zero - try making the values of x more distinct");
         }
 
         double m = (xAverage * yAverage - xyProductAverage) / denominator;
@@ -102,7 +107,7 @@ public class CalculatorLogic {
     public static double predictYFromLinearRegressionFormula(double x, double m, double b) throws Exception {
         //preq-LOGIC-8
         if(x == Double.NEGATIVE_INFINITY || m == Double.NEGATIVE_INFINITY || b == Double.NEGATIVE_INFINITY) {
-            throw new Exception("Missing one or more parameters - insert the values in the following order \"x, m, b\"");
+            throw new Exception("Invalid input\ninsert the values in the following order \"x, m, b\"");
         }
         return x * m + b;
     }
