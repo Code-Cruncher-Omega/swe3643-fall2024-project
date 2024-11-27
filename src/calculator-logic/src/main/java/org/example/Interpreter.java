@@ -1,4 +1,4 @@
-package com.instance;
+package org.example;
 
 public class Interpreter {
 

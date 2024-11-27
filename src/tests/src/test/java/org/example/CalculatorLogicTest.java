@@ -1,6 +1,5 @@
 package org.example;
 
-import com.instance.CalculatorLogic;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
