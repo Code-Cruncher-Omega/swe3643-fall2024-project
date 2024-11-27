@@ -10,17 +10,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class AppController {
 
     @RequestMapping("/")
-    public String output(@RequestParam(name="output", required=false, defaultValue = "Enter values below, then select an operation") String output,
-            @RequestParam(name="values", required=false, defaultValue = "") String values,
-            @RequestParam(name="isError", required=false, defaultValue="false") boolean isError,
-            @RequestParam(name="method", required=false, defaultValue="0") String operation, Model model) {
+    public String output(@RequestParam(name="values", required=false, defaultValue = "") String values,
+            @RequestParam(name="method", required=false, defaultValue="-1") String method, Model model) {
 
-        AppModel calcModel = new AppModel(values, operation, false);
+        AppModel calcModel = new AppModel(values, method, false);
         calcModel.calculateData();
 
         model.addAttribute("isError", calcModel.isError());
         model.addAttribute("output", calcModel.getOperation());
-        model.addAttribute("values", values);
+        model.addAttribute("values", calcModel.getValues());
         return "index";
     }
 

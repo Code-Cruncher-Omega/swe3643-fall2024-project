@@ -7,7 +7,7 @@ public class Interpreter {
     public static String[] splitString(String text, boolean comma, boolean newLine) throws Exception {
 
         if(text.isEmpty()) {
-            throw new Exception("Invalid input\nCan't input no values");
+            return new String [0];
         }
 
         String[] pieces = {};
@@ -45,6 +45,11 @@ public class Interpreter {
     }
 
     public static double[] parseStringArrayToDoubleArray(String[] elements) throws Exception {
+
+        if(elements.length == 0) {
+            return new double [0];
+        }
+
         double[] values = new double[elements.length];
         try {
             for(int i = 0 ; i < elements.length ; i++) {
@@ -55,7 +60,7 @@ public class Interpreter {
                 }
             }
         }   catch (Exception e) {
-            throw new Exception("Error\nInvalid input, numbers only");
+            throw new Exception("Invalid input format\nUse numbers only, don't use letters");
         }
         return values;
     }

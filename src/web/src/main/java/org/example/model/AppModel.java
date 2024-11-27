@@ -41,8 +41,9 @@ public class AppModel {
 
     public void calculateData() {
 
-        if(values.isEmpty()) {
+        if(operation.equals("-1")) {
             operation = "Enter values below, then select an operation";
+            values = "";
             return;
         }
 
@@ -93,7 +94,7 @@ public class AppModel {
                 double[] slrf = CalculatorLogic.computeSingleLineRegressionFormula(doubleList);
                 operation = "Compute Single Linear Regression Formula\ny = " + slrf[0] + "x + " + slrf[1];
             } else {
-                operation = "Single Linear Regression Prediction\ny = " + CalculatorLogic.predictYFromLinearRegressionFormula(doubleList[0], doubleList[1], doubleList[2]);
+                operation = "Single Linear Regression Prediction\ny = " + CalculatorLogic.predictYFromLinearRegressionFormula(doubleList);
             }
         } catch(Exception e) {
             operation = e.getMessage();

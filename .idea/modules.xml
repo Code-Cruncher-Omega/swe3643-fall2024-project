@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/e2e.iml" filepath="$PROJECT_DIR$/e2e.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/tests/swe3643-fall2024-project-tests.iml" filepath="$PROJECT_DIR$/src/tests/swe3643-fall2024-project-tests.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/web/swe3643-fall2024-project-web.iml" filepath="$PROJECT_DIR$/src/web/swe3643-fall2024-project-web.iml" />
     </modules>
   </component>

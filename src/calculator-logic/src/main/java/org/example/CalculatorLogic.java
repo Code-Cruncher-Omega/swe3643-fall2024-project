@@ -1,5 +1,8 @@
 package org.example;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class CalculatorLogic {
 
     private CalculatorLogic() {}    // Static class
@@ -22,10 +25,10 @@ public class CalculatorLogic {
         return computeStandardDeviation(values, true);
     }
 
-    public static double computeMean(double[] values) {
+    public static double computeMean(double[] values) throws Exception {
         //preq-LOGIC-5
         if(values.length == 0) {
-            return 0.0;
+            throw new Exception("Invalid input\ninput values, each separated by a new line");
         }
 
         double sumAccumulator = 0.0;
@@ -57,6 +60,10 @@ public class CalculatorLogic {
 
     public static double computeZScore(double[] input) throws Exception {
         //preq-LOGIC-6
+        if(input.length == 0) {
+            throw new Exception("Invalid input\ninput three values, each separated by a comma");
+        }
+
         double value = input[0];
         double mean = input[1];
         double standardDeviation = input[2];
@@ -68,7 +75,6 @@ public class CalculatorLogic {
 
     public static double[] computeSingleLineRegressionFormula(double[] pairs) throws Exception {
         //preq-LOGIC-7
-
         if(pairs.length == 0) {
             throw new Exception("Invalid input\ninsert at least two distinct x-value and y-value pairs");
         }
@@ -100,12 +106,35 @@ public class CalculatorLogic {
 
         double m = (xAverage * yAverage - xyProductAverage) / denominator;
         double b = yAverage - m * xAverage;
+        // Flooring to the 12th decimal place
+        DecimalFormat df = new DecimalFormat("#.#############");    // 13#'s or 13th-decimal place
+        df.setRoundingMode(RoundingMode.CEILING);
+        String bigM = df.format(m);
+        String bigB = df.format(b);
+        System.out.println(bigM.length() + " " + bigB.length());
+        if(bigM.length() < 3) { // If length goes unchecked, then an out-of-bounds error occurs
+            m = Double.parseDouble(bigM);
+        }   else {
+            m = Double.parseDouble(bigM.substring(0, bigM.length() - 1));   // 13th decimal place is inaccurate too so this
+        }                                                                   // uses the 12th place instead
+       if(bigB.length() < 3) {
+           b = Double.parseDouble(bigB);
+       }    else {
+           b = Double.parseDouble(bigB.substring(0, bigB.length() - 1));
+       }
 
         return new double[] {m, b};
     }
 
-    public static double predictYFromLinearRegressionFormula(double x, double m, double b) throws Exception {
+    public static double predictYFromLinearRegressionFormula(double[] input) throws Exception {
         //preq-LOGIC-8
+        if(input.length == 0) {
+            throw new Exception("Invalid input\ninput the values x, m, and b values, each separated by a comma");
+        }
+
+        double x = input[0];
+        double m = input[1];
+        double b = input[2];
         if(x == Double.NEGATIVE_INFINITY || m == Double.NEGATIVE_INFINITY || b == Double.NEGATIVE_INFINITY) {
             throw new Exception("Invalid input\ninsert the values in the following order \"x, m, b\"");
         }

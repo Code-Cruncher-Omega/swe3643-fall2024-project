@@ -19,6 +19,7 @@
         <module>calculator-logic</module>
         <module>tests</module>
         <module>web</module>
+        <module>e2e</module>
     </modules>
 
     <dependencyManagement>
@@ -27,6 +28,12 @@
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter</artifactId>
                 <version>5.11.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>5.11.0</version>
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>com.microsoft.playwright</groupId>
