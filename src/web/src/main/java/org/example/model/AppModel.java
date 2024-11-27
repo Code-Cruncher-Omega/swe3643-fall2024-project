@@ -1,7 +1,7 @@
 package org.example.model;
 
-import org.example.CalculatorLogic;
-import org.example.Interpreter;
+import com.instance.CalculatorLogic;
+import com.instance.Interpreter;
 
 public class AppModel {
 
