@@ -27,7 +27,7 @@ public class CalculatorLogic {
 
     public static double computeMean(double[] values) throws Exception {
         //preq-LOGIC-5
-        if(values.length == 0) {
+        if (values.length == 0) {
             throw new Exception("Invalid input\ninput values, each separated by a new line");
         }
 
@@ -49,7 +49,7 @@ public class CalculatorLogic {
             numValues--;
 
         if (numValues < 1) {
-            if(isPopulation) {
+            if (isPopulation) {
                 throw new Exception("Invalid input\nPopulation size must be greater than or equal to one");
             }
             throw new Exception("Invalid input\nSample size must be greater than or equal to two");
@@ -60,14 +60,14 @@ public class CalculatorLogic {
 
     public static double computeZScore(double[] input) throws Exception {
         //preq-LOGIC-6
-        if(input.length == 0) {
+        if (input.length == 0) {
             throw new Exception("Invalid input\ninput three values, each separated by a comma");
         }
 
         double value = input[0];
         double mean = input[1];
         double standardDeviation = input[2];
-        if(value == Double.NEGATIVE_INFINITY || mean == Double.NEGATIVE_INFINITY || standardDeviation == Double.NEGATIVE_INFINITY) {
+        if (value == Double.NEGATIVE_INFINITY || mean == Double.NEGATIVE_INFINITY || standardDeviation == Double.NEGATIVE_INFINITY) {
             throw new Exception("Invalid input\ninsert the values in the following order \"value, mean, standard deviation\"");
         }
         return (value - mean) / standardDeviation;
@@ -75,7 +75,7 @@ public class CalculatorLogic {
 
     public static double[] computeSingleLineRegressionFormula(double[] pairs) throws Exception {
         //preq-LOGIC-7
-        if(pairs.length == 0) {
+        if (pairs.length == 0) {
             throw new Exception("Invalid input\ninsert at least two distinct x-value and y-value pairs");
         }
 
@@ -100,7 +100,7 @@ public class CalculatorLogic {
 
         double denominator = xAverage * xAverage - xSquaredAverage;
 
-        if(denominator == 0) {
+        if (denominator == 0) {
             throw new Exception("Error\ncannot divide by zero - try making the values of x more distinct");
         }
 
@@ -111,12 +111,12 @@ public class CalculatorLogic {
         df.setRoundingMode(RoundingMode.CEILING);
         String bigM = df.format(m);
         String bigB = df.format(b);
-        if(bigM.length() < 3) { // If length goes unchecked, then an out-of-bounds error occurs
+        if (bigM.length() < 3) { // If length goes unchecked, then an out-of-bounds error occurs
             m = Double.parseDouble(bigM);
         }   else {
             m = Double.parseDouble(bigM.substring(0, bigM.length() - 1));   // 13th decimal place is inaccurate too so this
         }                                                                   // uses the 12th place instead
-       if(bigB.length() < 3) {
+       if (bigB.length() < 3) {
            b = Double.parseDouble(bigB);
        }    else {
            b = Double.parseDouble(bigB.substring(0, bigB.length() - 1));
@@ -127,14 +127,14 @@ public class CalculatorLogic {
 
     public static double predictYFromLinearRegressionFormula(double[] input) throws Exception {
         //preq-LOGIC-8
-        if(input.length == 0) {
+        if (input.length == 0) {
             throw new Exception("Invalid input\ninput the values x, m, and b values, each separated by a comma");
         }
 
         double x = input[0];
         double m = input[1];
         double b = input[2];
-        if(x == Double.NEGATIVE_INFINITY || m == Double.NEGATIVE_INFINITY || b == Double.NEGATIVE_INFINITY) {
+        if (x == Double.NEGATIVE_INFINITY || m == Double.NEGATIVE_INFINITY || b == Double.NEGATIVE_INFINITY) {
             throw new Exception("Invalid input\ninsert the values in the following order \"x, m, b\"");
         }
         return x * m + b;

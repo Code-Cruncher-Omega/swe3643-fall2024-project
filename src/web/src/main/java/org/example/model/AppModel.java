@@ -41,7 +41,7 @@ public class AppModel {
 
     public void calculateData() {
 
-        if(operation.equals("-1")) {
+        if (operation.equals("-1")) {
             operation = "Enter values below, then select an operation";
             values = "";
             return;
@@ -52,15 +52,15 @@ public class AppModel {
         boolean comma = false;
         boolean newLine = false;
 
-        if(operation.equals("0")) {
+        if (operation.equals("0")) {
             newLine = true;
-        } else if(operation.equals("1")) {
+        } else if (operation.equals("1")) {
             newLine = true;
-        } else if(operation.equals("2")) {
+        } else if (operation.equals("2")) {
             newLine = true;
-        } else if(operation.equals("3")) {
+        } else if (operation.equals("3")) {
             comma = true;
-        } else if(operation.equals("4")) {
+        } else if (operation.equals("4")) {
             newLine = true;
             comma = true;
         } else {
@@ -82,15 +82,19 @@ public class AppModel {
             return;
         }
         try {
-            if(operation.equals("0")) {
+            if (operation.equals("0")) {
                 operation = "Compute Sample Standard Deviation\n" + CalculatorLogic.computeSampleStandardDeviation(doubleList);
-            } else if(operation.equals("1")) {
+            } else if (operation.equals("1")) {
                 operation = "Compute Population Standard Deviation\n" + CalculatorLogic.computePopulationStandardDeviation(doubleList);
-            } else if(operation.equals("2")) {
+            } else if (operation.equals("2")) {
                 operation = "Compute Mean\n" + CalculatorLogic.computeMean(doubleList);
-            } else if(operation.equals("3")) {
+            } else if (operation.equals("3")) {
                 operation = "Compute Z Score\n" + CalculatorLogic.computeZScore(doubleList);
-            } else if(operation.equals("4")) {
+            } else if (operation.equals("4")) {
+                if (doubleList.length % 2 != 0) {
+                    throw new Exception("Invalid input format\nEnter pairs of values, don't input lone values");
+                }
+
                 double[] slrf = CalculatorLogic.computeSingleLineRegressionFormula(doubleList);
                 operation = "Compute Single Linear Regression Formula\ny = " + slrf[0] + "x + " + slrf[1];
             } else {

@@ -1,26 +1,25 @@
 package org.example;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorLogicTest {
-
-    final double DELTA = .0000000000009;
-    // Accuracy to the 12th decimal, not including 13th
-
 
     @Test
     void computeSampleStandardDeviation_validList_returnsDouble() {
         //preq-UNIT-TEST-2
         // Arrange
-        double [] valuesList = {9.0, 6.0, 8.0, 5.0, 7.0};
+        double [] valuesList = {
+                9.0, 6.0, 8.0, 5.0, 7.0
+        };
         double expectedResult = 1.5811388300841898;
         double result = 0.0;
 
         // Act
         try {
             result = CalculatorLogic.computeSampleStandardDeviation(valuesList);
-        }   catch(Exception e) {
+        }   catch (Exception e) {
             fail();
         }
 
@@ -34,13 +33,15 @@ class CalculatorLogicTest {
         // Arrange
         final double EXPECTED = 0.0;
 
-        final double[] VALUES = {0, 0, 0, 0};
+        final double[] VALUES = {
+                0, 0, 0, 0
+        };
         double result = Double.NEGATIVE_INFINITY;
 
         // Act
         try {
             result = CalculatorLogic.computeSampleStandardDeviation(VALUES);
-        } catch(Exception e) {
+        } catch (Exception e) {
             fail();
         }
 
@@ -58,7 +59,7 @@ class CalculatorLogicTest {
         // Act
         try {
             CalculatorLogic.computeSampleStandardDeviation(new double[] {1.0});
-        } catch(Exception e) {
+        } catch (Exception e) {
             result = e.getMessage();
         }
 
@@ -76,7 +77,7 @@ class CalculatorLogicTest {
         // Act
         try {
             CalculatorLogic.computeSampleStandardDeviation(new double[0]);
-        } catch(Exception e) {
+        } catch (Exception e) {
             result = e.getMessage();
         }
 
@@ -90,13 +91,18 @@ class CalculatorLogicTest {
         // Arrange
         final double EXPECTED = 2.9832867780352594;
 
-        final double[] VALUES = {9.0, 2.0, 5.0, 4.0, 12.0, 7.0, 8.0, 11.0, 9.0, 3.0, 7.0, 4.0, 12.0, 5.0, 4.0, 10.0, 9.0, 6.0, 9.0, 4.0};
+        final double[] VALUES = {
+                9.0, 2.0, 5.0, 4.0, 12.0,
+                7.0, 8.0, 11.0, 9.0, 3.0,
+                7.0, 4.0, 12.0, 5.0, 4.0,
+                10.0, 9.0, 6.0, 9.0, 4.0
+        };
         double result = 0.0;
 
         // Act
         try {
             result = CalculatorLogic.computePopulationStandardDeviation(VALUES);
-        }   catch(Exception e) {
+        }   catch (Exception e) {
             fail();
         }
 
@@ -110,13 +116,15 @@ class CalculatorLogicTest {
         // Arrange
         final double EXPECTED = 0.0;
 
-        final double[] VALUES = {0, 0, 0, 0};
+        final double[] VALUES = {
+                0, 0, 0, 0
+        };
         double result = Double.NEGATIVE_INFINITY;
 
         // Act
         try {
             result = CalculatorLogic.computePopulationStandardDeviation(VALUES);
-        } catch(Exception e) {
+        } catch (Exception e) {
             fail();
         }
 
@@ -134,7 +142,7 @@ class CalculatorLogicTest {
         // Act
         try {
             CalculatorLogic.computePopulationStandardDeviation(new double[0]);
-        } catch(Exception e) {
+        } catch (Exception e) {
             result = e.getMessage();
         }
 
@@ -148,13 +156,15 @@ class CalculatorLogicTest {
         // Arrange
         final double EXPECTED = 7.0;
 
-        double[] VALUES = {9.0, 6.0, 8.0, 5.0, 7.0};
+        double[] VALUES = {
+                9.0, 6.0, 8.0, 5.0, 7.0
+        };
         double result = Double.NEGATIVE_INFINITY;
 
         // Act
         try {
             result = CalculatorLogic.computeMean(VALUES);
-        } catch(Exception e) {
+        } catch (Exception e) {
             fail();
         }
 
@@ -173,7 +183,7 @@ class CalculatorLogicTest {
         try {
             CalculatorLogic.computeMean(new double[0]);
             fail();
-        } catch(Exception e) {
+        } catch (Exception e) {
             result = e.getMessage();
         }
 
@@ -191,7 +201,7 @@ class CalculatorLogicTest {
         try {
             CalculatorLogic.computeVariance(12.0, 0, true);
             fail();
-        } catch(Exception e) {
+        } catch (Exception e) {
             result = e.getMessage();
         }
 
@@ -204,13 +214,15 @@ class CalculatorLogicTest {
         //preq-UNIT-TEST-5
         // Arrange
         final double EXPECTED = 2.846049894151541;
-        final double[] input = {11.5, 7, 1.5811388300841898};
+        final double[] INPUT = {
+                11.5, 7, 1.5811388300841898
+        };
         double result = Double.NEGATIVE_INFINITY;
 
         // Act
         try {
-            result = CalculatorLogic.computeZScore(input);
-        } catch(Exception e) {
+            result = CalculatorLogic.computeZScore(INPUT);
+        } catch (Exception e) {
             fail();
         }
 
@@ -228,7 +240,7 @@ class CalculatorLogicTest {
         try {
             CalculatorLogic.computeZScore(new double[0]);
             fail();
-        } catch(Exception e) {
+        } catch (Exception e) {
             result = e.getMessage();
         }
 
@@ -246,22 +258,28 @@ class CalculatorLogicTest {
 
         // Act
         try {
-            input = new double[] {Double.NEGATIVE_INFINITY, 0.0, 1.0};
+            input = new double[] {
+                    Double.NEGATIVE_INFINITY, 0.0, 1.0  // Empty value
+            };
             CalculatorLogic.computeZScore(input);
             fail();
-        } catch(Exception e) {
+        } catch (Exception e) {
             valueResult = e.getMessage();
         }
         try {
-            input = new double[] {0.0, Double.NEGATIVE_INFINITY, 1.0};
+            input = new double[] {
+                    0.0, Double.NEGATIVE_INFINITY, 1.0  // Empty mean
+            };
             CalculatorLogic.computeZScore(input);
-        } catch(Exception e) {
+        } catch (Exception e) {
             meanResult = e.getMessage();
         }
         try {
-            input = new double[] {0.0, 0.0, Double.NEGATIVE_INFINITY};
+            input = new double[] {
+                    0.0, 0.0, Double.NEGATIVE_INFINITY  // Empty standard deviation
+            };
             CalculatorLogic.computeZScore(input);
-        } catch(Exception e) {
+        } catch (Exception e) {
             standardDeviationResult = e.getMessage();
         }
 
@@ -276,13 +294,15 @@ class CalculatorLogicTest {
         //preq-UNIT-TEST-5
         // Arrange
         final double EXPECTED = 7.285974499089253;
-        final double[] input = {12, 0, 1.647};
+        final double[] INPUT = {
+                12, 0, 1.647
+        };
         double result = Double.NEGATIVE_INFINITY;
 
         // Act
         try {
-            result = CalculatorLogic.computeZScore(input);
-        } catch(Exception e) {
+            result = CalculatorLogic.computeZScore(INPUT);
+        } catch (Exception e) {
             fail();
         }
 
@@ -297,13 +317,29 @@ class CalculatorLogicTest {
         final double M = 61.272186542107;
         final double B = -39.061955918838;
 
-        final double[] VALUES = {1.47, 52.21, 1.5, 53.12, 1.52, 54.48, 1.55, 55.84, 1.57, 57.2, 1.6, 58.57, 1.63, 59.93, 1.65, 61.29, 1.68, 63.11, 1.7, 64.47, 1.73, 66.28, 1.75, 68.1, 1.78, 69.92, 1.8, 72.19, 1.83, 74.46};
+        final double[] INPUT = {
+                1.47, 52.21,
+                1.5, 53.12,
+                1.52, 54.48,
+                1.55, 55.84,
+                1.57, 57.2,
+                1.6, 58.57,
+                1.63, 59.93,
+                1.65, 61.29,
+                1.68, 63.11,
+                1.7, 64.47,
+                1.73, 66.28,
+                1.75, 68.1,
+                1.78, 69.92,
+                1.8, 72.19,
+                1.83, 74.46
+        };
         double[] result = {};
 
         // Act
         try {
-            result = CalculatorLogic.computeSingleLineRegressionFormula(VALUES);
-        } catch(Exception e) {
+            result = CalculatorLogic.computeSingleLineRegressionFormula(INPUT);
+        } catch (Exception e) {
             fail();
         }
 
@@ -324,7 +360,7 @@ class CalculatorLogicTest {
         try {
             CalculatorLogic.computeSingleLineRegressionFormula(new double[0]);
             fail();
-        } catch(Exception e) {
+        } catch (Exception e) {
             result = e.getMessage();
         }
 
@@ -337,15 +373,20 @@ class CalculatorLogicTest {
         //preq-UNIT-TEST-6
         // Arrange
         final String EXPECTED = "cannot divide by zero";
-        final double[] VALUES = {12.0, 0.0, 12.0, 9.4, 12.0, 8.8, 12.0, 12.3};
+        final double[] INPUT = {
+                12.0, 0.0,
+                12.0, 9.4,
+                12.0, 8.8,
+                12.0, 12.3
+        };
 
         String result = "";
 
         // Act
         try {
-            CalculatorLogic.computeSingleLineRegressionFormula(VALUES);
+            CalculatorLogic.computeSingleLineRegressionFormula(INPUT);
             fail();
-        } catch(Exception e) {
+        } catch (Exception e) {
             result = e.getMessage();
         }
 
@@ -360,14 +401,19 @@ class CalculatorLogicTest {
         final double M = 0.0;
         final double B = 1.0;
 
-        final double[] VALUES = {9.99, 1.0, -81.2, 1.0, -25.7, 1.0, 60.0, 1.0};
+        final double[] INPUT = {
+                9.99, 1.0,
+                -81.2, 1.0,
+                -25.7, 1.0,
+                60.0, 1.0
+        };
         double[] result = {};
 
         // Act
         try {
-            result = CalculatorLogic.computeSingleLineRegressionFormula(VALUES);
-        } catch(Exception e) {
-
+            result = CalculatorLogic.computeSingleLineRegressionFormula(INPUT);
+        } catch (Exception e) {
+            fail();
         }
 
         // Assert
@@ -380,7 +426,10 @@ class CalculatorLogicTest {
         //preq-UNIT-TEST-6
         // Arrange
         final String EXPECTED = "cannot divide by zero";
-        final double[] VALUES = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+        final double[] VALUES = {
+                0.0, 0.0, 0.0, 0.0,
+                0.0, 0.0, 0.0, 0.0
+        };
 
         String result = "";
 
@@ -388,7 +437,7 @@ class CalculatorLogicTest {
         try {
             CalculatorLogic.computeSingleLineRegressionFormula(VALUES);
             fail();
-        } catch(Exception e) {
+        } catch (Exception e) {
             result = e.getMessage();
         }
 
@@ -401,14 +450,16 @@ class CalculatorLogicTest {
         //preq-UNIT-TEST-7
         // Arrange
         final double EXPECTED = 54.990850423296244;
-        final double[] INPUT = {1.535, 61.272186542107434, -39.061955918838656};
+        final double[] INPUT = {
+                1.535, 61.272186542107434, -39.061955918838656
+        };
 
         double result = Double.NEGATIVE_INFINITY;
 
         // Act
         try {
             result = CalculatorLogic.predictYFromLinearRegressionFormula(INPUT);
-        } catch(Exception e) {
+        } catch (Exception e) {
             fail();
         }
 
@@ -427,19 +478,19 @@ class CalculatorLogicTest {
         try {
             CalculatorLogic.predictYFromLinearRegressionFormula(new double[] {Double.NEGATIVE_INFINITY, 0.0, 0.0}); // Missing X
             fail();
-        } catch(Exception e) {
+        } catch (Exception e) {
             xResult = e.getMessage();
         }
         try {
             CalculatorLogic.predictYFromLinearRegressionFormula(new double[] {0.0, Double.NEGATIVE_INFINITY, 0.0}); // Missing M
             fail();
-        } catch(Exception e) {
+        } catch (Exception e) {
             mResult = e.getMessage();
         }
         try {
             CalculatorLogic.predictYFromLinearRegressionFormula(new double[] {0.0, 0.0, Double.NEGATIVE_INFINITY}); // Missing B
             fail();
-        } catch(Exception e) {
+        } catch (Exception e) {
             bResult = e.getMessage();
         }
 
@@ -460,7 +511,7 @@ class CalculatorLogicTest {
         try {
             CalculatorLogic.predictYFromLinearRegressionFormula(new double [0]);
             fail();
-        } catch(Exception e) {
+        } catch (Exception e) {
             result = e.getMessage();
         }
 
