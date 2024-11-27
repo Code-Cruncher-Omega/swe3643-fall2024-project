@@ -5,9 +5,19 @@
     <file url="file://$PROJECT_DIR$/src/calculator-logic/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/calculator-logic/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/calculator-logic/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/e2e/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/e2e/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/e2e/src/test/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/e2e/src/test/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/tests/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/tests/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/tests/src/test/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/tests/src/test/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/web/src/main/resources" charset="UTF-8" />
   </component>
 </project>

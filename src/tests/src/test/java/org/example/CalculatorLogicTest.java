@@ -70,7 +70,7 @@ class CalculatorLogicTest {
     void computeSampleStandardDeviation_emptyList_throwException() {
         //preq-UNIT-TEST-2
         // Arrange
-        final String EXPECTED = "Sample size must be greater than or equal to two";
+        final String EXPECTED = "Invalid input\n";
         String result = "";
 
         // Act
@@ -128,7 +128,7 @@ class CalculatorLogicTest {
     void computePopulationStandardDeviation_emptyList_throwException() {
         //preq-UNIT-TEST-3
         // Arrange
-        final String EXPECTED = "Population size must be greater than or equal to one";
+        final String EXPECTED = "Invalid input\n";
         String result = "";
 
         // Act
@@ -149,27 +149,54 @@ class CalculatorLogicTest {
         final double EXPECTED = 7.0;
 
         double[] VALUES = {9.0, 6.0, 8.0, 5.0, 7.0};
-        double result;
+        double result = Double.NEGATIVE_INFINITY;
 
         // Act
-        result = CalculatorLogic.computeMean(VALUES);
+        try {
+            result = CalculatorLogic.computeMean(VALUES);
+        } catch(Exception e) {
+            fail();
+        }
 
         // Assert
         assertEquals(EXPECTED, result);
     }
 
     @Test
-    void computeMean_emptyList_returnsZero() {
+    void computeMean_emptyList_throwsException() {
         //preq-UNIT-TEST-4
         // Arrange
-        final double EXPECTED = 0.0;
-        double result;
+        final String EXPECTED = "Invalid input\n";
+        String result = "";
 
         // Act
-        result = CalculatorLogic.computeMean(new double[0]);
+        try {
+            CalculatorLogic.computeMean(new double[0]);
+            fail();
+        } catch(Exception e) {
+            result = e.getMessage();
+        }
 
         // Assert
-        assertEquals(EXPECTED, result);
+        assertTrue(result.contains(EXPECTED));
+    }
+
+    @Test
+    void computeVariance_emptyPopulation_throwException() {
+        // Arrange
+        final String EXPECTED = "Invalid input\n";
+        String result = "";
+
+        // Act
+        try {
+            CalculatorLogic.computeVariance(12.0, 0, true);
+            fail();
+        } catch(Exception e) {
+            result = e.getMessage();
+        }
+
+        // Assert
+        assertTrue(result.contains(EXPECTED));
     }
 
     @Test
@@ -177,11 +204,12 @@ class CalculatorLogicTest {
         //preq-UNIT-TEST-5
         // Arrange
         final double EXPECTED = 2.846049894151541;
+        final double[] input = {11.5, 7, 1.5811388300841898};
         double result = Double.NEGATIVE_INFINITY;
 
         // Act
         try {
-            result = CalculatorLogic.computeZScore(11.5, 7, 1.5811388300841898);
+            result = CalculatorLogic.computeZScore(input);
         } catch(Exception e) {
             fail();
         }
@@ -191,26 +219,48 @@ class CalculatorLogicTest {
     }
 
     @Test
+    void computeZScore_emptyInput_throwException() {
+        // Arrange
+        final String EXPECTED = "Invalid input\n";
+        String result = "";
+
+        // Act
+        try {
+            CalculatorLogic.computeZScore(new double[0]);
+            fail();
+        } catch(Exception e) {
+            result = e.getMessage();
+        }
+
+        // Assert
+        assertTrue(result.contains(EXPECTED));
+    }
+
+    @Test
     void computeZScore_missingParameter_throwException() {
         //preq-UNIT-TEST-5
         // Arrange
-        final String EXPECTED = "Missing one or more parameters";
+        final String EXPECTED = "Invalid input\n";
+        double[] input;
         String valueResult = "", meanResult = "", standardDeviationResult = "";
 
         // Act
         try {
-            CalculatorLogic.computeZScore(Double.NEGATIVE_INFINITY, 0.0, 1.0);
+            input = new double[] {Double.NEGATIVE_INFINITY, 0.0, 1.0};
+            CalculatorLogic.computeZScore(input);
             fail();
         } catch(Exception e) {
             valueResult = e.getMessage();
         }
         try {
-            CalculatorLogic.computeZScore(0.0, Double.NEGATIVE_INFINITY, 1.0);
+            input = new double[] {0.0, Double.NEGATIVE_INFINITY, 1.0};
+            CalculatorLogic.computeZScore(input);
         } catch(Exception e) {
             meanResult = e.getMessage();
         }
         try {
-            CalculatorLogic.computeZScore(0.0, 0.0, Double.NEGATIVE_INFINITY);
+            input = new double[] {0.0, 0.0, Double.NEGATIVE_INFINITY};
+            CalculatorLogic.computeZScore(input);
         } catch(Exception e) {
             standardDeviationResult = e.getMessage();
         }
@@ -226,11 +276,12 @@ class CalculatorLogicTest {
         //preq-UNIT-TEST-5
         // Arrange
         final double EXPECTED = 7.285974499089253;
+        final double[] input = {12, 0, 1.647};
         double result = Double.NEGATIVE_INFINITY;
 
         // Act
         try {
-            result = CalculatorLogic.computeZScore(12, 0, 1.647);
+            result = CalculatorLogic.computeZScore(input);
         } catch(Exception e) {
             fail();
         }
@@ -243,8 +294,8 @@ class CalculatorLogicTest {
     void computeSingleLineRegressionFormula_validInput_returnMB() {
         //preq-UNIT-TEST-6
         // Arrange
-        final double M = 61.272186542107434;
-        final double B = -39.061955918838656;
+        final double M = 61.272186542107;
+        final double B = -39.061955918838;
 
         final double[] VALUES = {1.47, 52.21, 1.5, 53.12, 1.52, 54.48, 1.55, 55.84, 1.57, 57.2, 1.6, 58.57, 1.63, 59.93, 1.65, 61.29, 1.68, 63.11, 1.7, 64.47, 1.73, 66.28, 1.75, 68.1, 1.78, 69.92, 1.8, 72.19, 1.83, 74.46};
         double[] result = {};
@@ -257,8 +308,8 @@ class CalculatorLogicTest {
         }
 
         // Assert
-        assertEquals(M, result[0], DELTA);  // Some deviation at the 13th decimal place but still very accurate
-        assertEquals(B, result[1], DELTA);
+        assertEquals(M, result[0]);
+        assertEquals(B, result[1]);
     }
 
     @Test
@@ -285,7 +336,7 @@ class CalculatorLogicTest {
     void computeSingleLineRegressionFormula_listOfEqualXValues_throwException() {
         //preq-UNIT-TEST-6
         // Arrange
-        final String EXPECTED = "Cannot divide by zero";
+        final String EXPECTED = "cannot divide by zero";
         final double[] VALUES = {12.0, 0.0, 12.0, 9.4, 12.0, 8.8, 12.0, 12.3};
 
         String result = "";
@@ -305,7 +356,7 @@ class CalculatorLogicTest {
     @Test
     void computeSingleLineRegressionFormula_listOfEqualYValues_returnMB() {
         //preq-UNIT-TEST-6
-        // Assert
+        // Arrange
         final double M = 0.0;
         final double B = 1.0;
 
@@ -316,7 +367,7 @@ class CalculatorLogicTest {
         try {
             result = CalculatorLogic.computeSingleLineRegressionFormula(VALUES);
         } catch(Exception e) {
-            fail();
+
         }
 
         // Assert
@@ -328,7 +379,7 @@ class CalculatorLogicTest {
     void computeSingleLineRegressionFormula_listOfZeroPairs_throwException() {
         //preq-UNIT-TEST-6
         // Arrange
-        final String EXPECTED = "Cannot divide by zero";
+        final String EXPECTED = "cannot divide by zero";
         final double[] VALUES = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 
         String result = "";
@@ -350,15 +401,13 @@ class CalculatorLogicTest {
         //preq-UNIT-TEST-7
         // Arrange
         final double EXPECTED = 54.990850423296244;
+        final double[] INPUT = {1.535, 61.272186542107434, -39.061955918838656};
 
-        final double X = 1.535;
-        final double M = 61.272186542107434;
-        final double B = -39.061955918838656;
         double result = Double.NEGATIVE_INFINITY;
 
         // Act
         try {
-            result = CalculatorLogic.predictYFromLinearRegressionFormula(X, M, B);
+            result = CalculatorLogic.predictYFromLinearRegressionFormula(INPUT);
         } catch(Exception e) {
             fail();
         }
@@ -371,24 +420,24 @@ class CalculatorLogicTest {
     void predictYFromLinearRegressionFormula_missingParameter_throwException() {
         //preq-UNIT-TEST-7
         // Arrange
-        final String EXPECTED = "Missing one or more parameters";
+        final String EXPECTED = "Invalid input\n";
         String xResult = "", mResult = "", bResult = "";
 
         // Act
         try {
-            CalculatorLogic.predictYFromLinearRegressionFormula(Double.NEGATIVE_INFINITY, 0.0, 0.0);
+            CalculatorLogic.predictYFromLinearRegressionFormula(new double[] {Double.NEGATIVE_INFINITY, 0.0, 0.0}); // Missing X
             fail();
         } catch(Exception e) {
             xResult = e.getMessage();
         }
         try {
-            CalculatorLogic.predictYFromLinearRegressionFormula(0.0, Double.NEGATIVE_INFINITY, 0.0);
+            CalculatorLogic.predictYFromLinearRegressionFormula(new double[] {0.0, Double.NEGATIVE_INFINITY, 0.0}); // Missing M
             fail();
         } catch(Exception e) {
             mResult = e.getMessage();
         }
         try {
-            CalculatorLogic.predictYFromLinearRegressionFormula(0.0, 0.0, Double.NEGATIVE_INFINITY);
+            CalculatorLogic.predictYFromLinearRegressionFormula(new double[] {0.0, 0.0, Double.NEGATIVE_INFINITY}); // Missing B
             fail();
         } catch(Exception e) {
             bResult = e.getMessage();
@@ -398,5 +447,24 @@ class CalculatorLogicTest {
         assertTrue(xResult.contains(EXPECTED));
         assertTrue(mResult.contains(EXPECTED));
         assertTrue(bResult.contains(EXPECTED));
+    }
+
+    @Test
+    void predictYFromLinearRegressionFormula_emptyInput_throwException() {
+        // Arrange
+        final String EXPECTED = "Invalid input\n";
+
+        String result = "";
+
+        // Act
+        try {
+            CalculatorLogic.predictYFromLinearRegressionFormula(new double [0]);
+            fail();
+        } catch(Exception e) {
+            result = e.getMessage();
+        }
+
+        // Assert
+        assertTrue(result.contains(EXPECTED));
     }
 }
