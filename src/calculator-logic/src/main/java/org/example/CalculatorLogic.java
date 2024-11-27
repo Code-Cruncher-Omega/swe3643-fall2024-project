@@ -111,7 +111,6 @@ public class CalculatorLogic {
         df.setRoundingMode(RoundingMode.CEILING);
         String bigM = df.format(m);
         String bigB = df.format(b);
-        System.out.println(bigM.length() + " " + bigB.length());
         if(bigM.length() < 3) { // If length goes unchecked, then an out-of-bounds error occurs
             m = Double.parseDouble(bigM);
         }   else {

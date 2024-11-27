@@ -11,7 +11,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>swe3643-fall2024-project-web-tests</artifactId>
+    <artifactId>swe3643-fall2024-project-e2e</artifactId>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}-${project.version}</name>
@@ -36,5 +36,6 @@
             <artifactId>playwright</artifactId>
         </dependency>
     </dependencies>
+
 
 </project>
