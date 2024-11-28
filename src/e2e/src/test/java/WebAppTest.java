@@ -23,7 +23,7 @@ public class WebAppTest {
         page.getByLabel("").fill("9\n2\n5\n4\n12\n7\n8\n11\n9\n3\n7\n4\n12\n5\n4\n10\n9\n6\n9\n4");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Compute Sample Standard")).click();
         assertThat(page.locator("h3")).containsText("3.060787652326");
-        
+
     }
 
     @Test
@@ -32,7 +32,7 @@ public class WebAppTest {
         page.navigate("http://localhost:8080");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Compute Population Standard")).click();
         assertThat(page.locator("h3")).containsText("Invalid input input values, each separated by a new line");
-        
+
     }
 
     @Test
@@ -41,7 +41,7 @@ public class WebAppTest {
         page.navigate("http://localhost:8080");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Compute Sample Standard")).click();
         assertThat(page.locator("h3")).containsText("Invalid input input values, each separated by a new line");
-        
+
     }
 
     @Test
@@ -62,8 +62,8 @@ public class WebAppTest {
         page.getByLabel("").fill("5.5,7,3.060787652326");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Compute Z Score")).click();
         assertThat(page.locator("h3")).containsText("-0.490069");    // expected value changed from -0.49007 to -0.490069 since logic doesn't round up
-                                                                                        // and output would be considered incorrect despite being more accurate than expected
-        
+        // and output would be considered incorrect despite being more accurate than expected
+
     }
 
     @Test
@@ -87,3 +87,4 @@ public class WebAppTest {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Compute Y from Linear Regression Formula")).click();
         assertThat(page.locator("h3")).containsText("6.65784");
     }
+}
