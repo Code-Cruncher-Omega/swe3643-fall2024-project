@@ -7,9 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="swe3643-fall2024-project-tests" />
-        <module name="e2e" />
         <module name="swe3643-fall2024-project-logic" />
         <module name="swe3643-fall2024-project-web" />
+        <module name="swe3643-fall2024-project-e2e" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
