@@ -16,7 +16,7 @@ public class AppController {
         AppModel calcModel = new AppModel(values, method, false);
         calcModel.calculateData();
 
-        model.addAttribute("isError", calcModel.isError());
+        model.addAttribute("isError", calcModel.getError());
         model.addAttribute("output", calcModel.getOperation());
         model.addAttribute("values", calcModel.getValues());
         return "index";

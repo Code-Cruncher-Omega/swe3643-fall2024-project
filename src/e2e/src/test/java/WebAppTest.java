@@ -87,4 +87,3 @@ public class WebAppTest {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Compute Y from Linear Regression Formula")).click();
         assertThat(page.locator("h3")).containsText("6.65784");
     }
-}

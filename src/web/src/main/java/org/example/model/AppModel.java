@@ -15,7 +15,7 @@ public class AppModel {
         this.isError = isError;
     }
 
-    public boolean isError() {
+    public boolean getError() {
         return isError;
     }
 
