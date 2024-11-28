@@ -1,5 +1,5 @@
 # KSU SWE 3643 Software Testing and Quality Assurance Semester Project: Web-Based Calculator
-As a part of my class, I was given the task to design, create, and test a project to showcase software quality assurance measures learned during the past semester. This repository expresses the culmination of said knowledge through a web application designed to calculate deviations and single line regression formulas. It also goes step-by-step as to how to run the web application, unit tests, and end-to-end tests amongst other things, as well as providing imagery to help understand the contents of this project.
+As a part of my class, I was given the task to design, create, and test a project to showcase software quality assurance measures learned during the past semester. This repository expresses the culmination of said knowledge through a web application designed to calculate deviations and single line regression formulas. It also describes step-by-step as to how to run the web application, unit tests for its logic, and end-to-end web tests amongst other things, as well as providing imagery to assist in understanding the contents of this project.
 
 ## Table of Contents
 
@@ -13,17 +13,18 @@ As a part of my class, I was given the task to design, create, and test a projec
 - [Final Video Presentation](#final-video-presentation)
 
 ## Team Members
-This entire project was completed in its entirety by myself, Eduardo Arellano, to practice my knowledge of Java and HTML as well as enlightening myself about new tools, such as Maven and POM files.
+This entire project was completed in its entirety by myself, Eduardo Arellano, to practice my knowledge of Java and HTML as well as enlightening myself about powerful tools, such as Maven and POM files.
 
 ## Architecture
+To give an idea of the general structure of this project, here is a PlantUML generated diagram showcasing its inner-workings:
 
-
+<img src="src/assets/architectureDiagram.png" alt="architectureDiagram.png"/>
 
 ## Environment
 This is a cross-platform application and should work in Windows 10+, Mac OSx Ventura+, and Linux environments. Note that the application has only been carefully tested in Windows 10 and Windows 11.
 
 To prepare your environment to execute this application:
- 1. [Install the latest Java runtime for your system.](https://www.java.com/en/download/manual.jsp) This project utilizes Java Version 21, so using this or a newer version will produce the best result when running this application.
+ 1. [Install the latest Java Development Kit for your system.](https://www.oracle.com/java/technologies/downloads/) This project utilized JDK 21 during development, so using this or a newer version will produce the best result when running this application.
  2. [Install the latest Maven software project management and comprehension tool.](https://maven.apache.org/download.cgi) Dependency management is covered with Maven 3.9.9 in mind.
 
 Playwright itself is already managed by Maven through POM files, so there should be no need to configure it for end-to-end testing. Though, it is worth noting that this project starts up HTTP port 8080, so if there is already something on port 8080, running this application will not work and will instead result in some errors.
@@ -96,8 +97,9 @@ $ mvn test -pl tests
 ```
 
 ## Reviewing Unit Test Coverage
+Throughout the entirety of development, unit tests were designed with the primary focus to ensure that all statements and paths of the app's logic is fully tested and successful. Through the use of JetBrains' IDE coverage graphic tool, it has produced the following results regarding the app's logic:
 
-
+<img src="src/assets/coverageStatistics.png" alt="coverageStatistics.png"/>
 
 ## Executing End-To-End Tests
 As mentioned earlier, Maven manages Playwright, so there's no need to manually configure the project for it to work. For the end-to-end tests to work, the web application must be running during execution, other than that the tests can be run from the command line similar to running the unit tests.
