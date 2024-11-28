@@ -88,7 +88,3 @@ public class WebAppTest {
         assertThat(page.locator("h3")).containsText("6.65784");
     }
 }
-
-//For test code gen:
-//Run where pom.xml is at, so in this case \src\e2e\
-//mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="codegen http://localhost:8080"
