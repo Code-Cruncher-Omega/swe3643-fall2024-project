@@ -17,7 +17,7 @@ As a part of my class, I was given the task to design, create, and test a projec
 This entire project was completed in its entirety by myself, Eduardo Arellano, to practice my knowledge of quality assurance, Java, and HTML as well as enlightening myself about powerful tools, such as Maven and POM files.
 
 ## Architecture
-To give a idea of the general structure of this project, here is a PlantUML generated diagram showcasing its inner-workings:
+The structure of the web app is split into four distinct modules, linked by a parent POM with some dependencies formed between submodules. These submodules consist of the logic, unit tests, web page, and end-to-end tests, where the web page and unit tests rely on logic, while the end-to-end tests rely on the web page. The web page itself takes on a Model, View, and Controller architecture; the View aspect is handled by Thymeleaf through the Controller, and similarly the Controller manipulates the Model which refers to the logic. To give a better idea of the format of this project, here is a PlantUML generated diagram showcasing its inner-workings:
 
 <img src="src/assets/architectureDiagram.png" alt="architectureDiagram.png"/>
 
@@ -64,7 +64,7 @@ $ mvn clean install
 $ mvn test -pl tests
 ```
 
-From here, the tests should run and all unit tests should succeed. Here is some sample output that should come from running the tests:
+From here, the tests should run and all unit tests should succeed. Here is some sample output that would come from running the tests:
 ```bash
 $ mvn test -pl tests
 
@@ -109,7 +109,7 @@ As mentioned earlier, Maven manages Playwright, so there's no need to manually c
 ```bash
 $ mvn test -pl e2e
 ```
-The end-to-end tests should execute and succeed, and for reference here is a sample output from running the tests:
+The end-to-end tests should then execute and succeed, and for reference here is a sample output from running the tests:
 ```bash
 $ mvn test -pl e2e
 
