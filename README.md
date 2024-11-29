@@ -1,3 +1,4 @@
+
 # KSU SWE 3643 Software Testing and Quality Assurance Semester Project: Web-Based Calculator
 As a part of my class, I was given the task to design, create, and test a project to showcase software quality assurance measures learned during the past semester. This repository expresses the culmination of said knowledge through a web application designed to calculate deviations and single line regression formulas. It also describes step-by-step as to how to run the web application, unit tests for its logic, and end-to-end web tests amongst other things, as well as providing imagery to assist in understanding the contents of this project.
 
@@ -13,10 +14,10 @@ As a part of my class, I was given the task to design, create, and test a projec
 - [Final Video Presentation](#final-video-presentation)
 
 ## Team Members
-This entire project was completed in its entirety by myself, Eduardo Arellano, to practice my knowledge of Java and HTML as well as enlightening myself about powerful tools, such as Maven and POM files.
+This entire project was completed in its entirety by myself, Eduardo Arellano, to practice my knowledge of quality assurance, Java, and HTML as well as enlightening myself about powerful tools, such as Maven and POM files.
 
 ## Architecture
-To give an idea of the general structure of this project, here is a PlantUML generated diagram showcasing its inner-workings:
+To give a idea of the general structure of this project, here is a PlantUML generated diagram showcasing its inner-workings:
 
 <img src="src/assets/architectureDiagram.png" alt="architectureDiagram.png"/>
 
@@ -102,7 +103,7 @@ Throughout the entirety of development, unit tests were designed with the primar
 <img src="src/assets/coverageStatistics.png" alt="coverageStatistics.png"/>
 
 ## Executing End-To-End Tests
-As mentioned earlier, Maven manages Playwright, so there's no need to manually configure the project for it to work. For the end-to-end tests to work, the web application must be running during execution, other than that the tests can be run from the command line similar to running the unit tests.
+As mentioned earlier, Maven manages Playwright, so there's no need to manually configure the project for it to work. For the end-to-end tests to function, the web application MUST be running during execution, other than that the tests can be run from the command line similar to running the unit tests.
  1. [Start up the web application](#executing-the-web-application)
  2. Then in another command line (terminal / console) instance, in the /src/ folder execute the end-to-end tests through maven. Done through the command:
 ```bash
@@ -120,7 +121,7 @@ $ mvn test -pl e2e
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO]
 [INFO] --- resources:3.3.1:resources (default-resources) @ swe3643-fall2024-project-e2e ---
-[INFO] skip non existing resourceDirectory \swe3643-fall2024-project\src\e2e\src\main\resources
+[INFO] skip non existing resourceDirectory \swe3643-fall2024\project\src\e2e\src\main\resources
 [INFO]
 [INFO] --- compiler:3.13.0:compile (default-compile) @ swe3643-fall2024-project-e2e ---
 [INFO] No sources to compile
