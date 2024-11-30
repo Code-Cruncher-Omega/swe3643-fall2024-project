@@ -1,10 +1,14 @@
+package org.example;
+
 import com.microsoft.playwright.junit.UsePlaywright;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.*;
-
 import org.junit.jupiter.api.*;
+import org.springframework.boot.test.context.SpringBootTest;
+
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @UsePlaywright
 public class WebAppTest {
 
@@ -23,7 +27,7 @@ public class WebAppTest {
         page.getByLabel("").fill("9\n2\n5\n4\n12\n7\n8\n11\n9\n3\n7\n4\n12\n5\n4\n10\n9\n6\n9\n4");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Compute Sample Standard")).click();
         assertThat(page.locator("h3")).containsText("3.060787652326");
-        
+
     }
 
     @Test
@@ -32,7 +36,7 @@ public class WebAppTest {
         page.navigate("http://localhost:8080");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Compute Population Standard")).click();
         assertThat(page.locator("h3")).containsText("Invalid input input values, each separated by a new line");
-        
+
     }
 
     @Test
@@ -41,7 +45,7 @@ public class WebAppTest {
         page.navigate("http://localhost:8080");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Compute Sample Standard")).click();
         assertThat(page.locator("h3")).containsText("Invalid input input values, each separated by a new line");
-        
+
     }
 
     @Test
@@ -61,9 +65,9 @@ public class WebAppTest {
         page.getByLabel("").click();
         page.getByLabel("").fill("5.5,7,3.060787652326");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Compute Z Score")).click();
-        assertThat(page.locator("h3")).containsText("-0.490069");    // expected value changed from -0.49007 to -0.490069 since logic doesn't round up
-                                                                                        // and output would be considered incorrect despite being more accurate than expected
-        
+        assertThat(page.locator("h3")).containsText("-0.490069");
+        // expected value changed from -0.49007 to -0.490069 since logic doesn't round up, plus this is more accurate
+
     }
 
     @Test
@@ -88,7 +92,3 @@ public class WebAppTest {
         assertThat(page.locator("h3")).containsText("6.65784");
     }
 }
-
-//For test code gen:
-//Run where pom.xml is at, so in this case \src\e2e\
-//mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="codegen http://localhost:8080"

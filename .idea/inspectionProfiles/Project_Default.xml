@@ -32,15 +32,18 @@
       <option name="ignoredModules">
         <list>
           <option value="swe3643-fall2024-project" />
+          <option value="swe3643-fall2024-project-e2e" />
         </list>
       </option>
       <option name="ignoredPackages">
         <list>
           <option value="org.apache.commons:commons-compress:1.25.0" />
+          <option value="org.xmlunit:xmlunit-core:2.9.1" />
         </list>
       </option>
       <option name="ignoredReasons">
         <list>
+          <option value="Not exploitable" />
           <option value="Not exploitable" />
         </list>
       </option>
