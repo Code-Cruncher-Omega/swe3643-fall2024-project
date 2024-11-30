@@ -28,7 +28,7 @@ public class CalculatorLogic {
     public static double computeMean(double[] values) throws Exception {
         //preq-LOGIC-5
         if (values.length == 0) {
-            throw new Exception("Invalid input\ninput values, each separated by a new line");
+            throw new Exception("Invalid input\nInput values, each separated by a new line");
         }
 
         double sumAccumulator = 0.0;
@@ -61,14 +61,14 @@ public class CalculatorLogic {
     public static double computeZScore(double[] input) throws Exception {
         //preq-LOGIC-6
         if (input.length == 0) {
-            throw new Exception("Invalid input\ninput three values, each separated by a comma");
+            throw new Exception("Invalid input\nInput value, mean, and deviation, each separated by a comma");
         }
 
         double value = input[0];
         double mean = input[1];
         double standardDeviation = input[2];
         if (value == Double.NEGATIVE_INFINITY || mean == Double.NEGATIVE_INFINITY || standardDeviation == Double.NEGATIVE_INFINITY) {
-            throw new Exception("Invalid input\ninsert the values in the following order \"value, mean, standard deviation\"");
+            throw new Exception("Invalid input\nInput the values in the following order \"value, mean, standard deviation\"");
         }
         return (value - mean) / standardDeviation;
     }
@@ -76,7 +76,7 @@ public class CalculatorLogic {
     public static double[] computeSingleLineRegressionFormula(double[] pairs) throws Exception {
         //preq-LOGIC-7
         if (pairs.length == 0) {
-            throw new Exception("Invalid input\ninsert at least two distinct x-value and y-value pairs");
+            throw new Exception("Invalid input\nInput at least two distinct x-value and y-value pairs");
         }
 
         double xAverage = 0.0, yAverage = 0.0, xyProductAverage = 0.0, xSquaredAverage = 0.0;
@@ -128,14 +128,14 @@ public class CalculatorLogic {
     public static double predictYFromLinearRegressionFormula(double[] input) throws Exception {
         //preq-LOGIC-8
         if (input.length == 0) {
-            throw new Exception("Invalid input\ninput the values x, m, and b values, each separated by a comma");
+            throw new Exception("Invalid input\nInput the values x, m, and b values, each separated by a comma");
         }
 
         double x = input[0];
         double m = input[1];
         double b = input[2];
         if (x == Double.NEGATIVE_INFINITY || m == Double.NEGATIVE_INFINITY || b == Double.NEGATIVE_INFINITY) {
-            throw new Exception("Invalid input\ninsert the values in the following order \"x, m, b\"");
+            throw new Exception("Invalid input\nInput the values x, m, and b values, each separated by a comma");
         }
         return x * m + b;
     }

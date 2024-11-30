@@ -71,7 +71,7 @@ class CalculatorLogicTest {
     void computeSampleStandardDeviation_emptyList_throwException() {
         //preq-UNIT-TEST-2
         // Arrange
-        final String EXPECTED = "Invalid input\n";
+        final String EXPECTED = "Input values, each separated by a new line";
         String result = "";
 
         // Act
@@ -136,7 +136,7 @@ class CalculatorLogicTest {
     void computePopulationStandardDeviation_emptyList_throwException() {
         //preq-UNIT-TEST-3
         // Arrange
-        final String EXPECTED = "Invalid input\n";
+        final String EXPECTED = "Input values, each separated by a new line";
         String result = "";
 
         // Act
@@ -176,7 +176,7 @@ class CalculatorLogicTest {
     void computeMean_emptyList_throwsException() {
         //preq-UNIT-TEST-4
         // Arrange
-        final String EXPECTED = "Invalid input\n";
+        final String EXPECTED = "Input values, each separated by a new line";
         String result = "";
 
         // Act
@@ -194,8 +194,8 @@ class CalculatorLogicTest {
     @Test
     void computeVariance_emptyPopulation_throwException() {
         // Arrange
-        final String EXPECTED = "Invalid input\n";
-        String result = "";
+        final String EXPECTED = "size must be greater than or equal to";    // Doesn't specify deviation type to work
+        String result = "";                                                 // to work with either types
 
         // Act
         try {
@@ -234,7 +234,7 @@ class CalculatorLogicTest {
     void computeZScore_emptyInput_throwException() {
         //preq-UNIT-TEST-5
         // Arrange
-        final String EXPECTED = "Invalid input\n";
+        final String EXPECTED = "Input value, mean, and deviation, each separated by a comma";
         String result = "";
 
         // Act
@@ -253,7 +253,7 @@ class CalculatorLogicTest {
     void computeZScore_missingParameter_throwException() {
         //preq-UNIT-TEST-5
         // Arrange
-        final String EXPECTED = "Invalid input\n";
+        final String EXPECTED = "Input the values in the following order \"value, mean, standard deviation\"";
         double[] input;
         String valueResult = "", meanResult = "", standardDeviationResult = "";
 
@@ -353,7 +353,7 @@ class CalculatorLogicTest {
     void computeSingleLineRegressionFormula_emptyList_throwException() {
         //preq-UNIT-TEST-6
         // Arrange
-        final String EXPECTED = "Invalid input";
+        final String EXPECTED = "Input at least two distinct x-value and y-value pairs";
 
         String result = "";
 
@@ -373,7 +373,7 @@ class CalculatorLogicTest {
     void computeSingleLineRegressionFormula_listOfEqualXValues_throwException() {
         //preq-UNIT-TEST-6
         // Arrange
-        final String EXPECTED = "cannot divide by zero";
+        final String EXPECTED = "try making the values of x more distinct";
         final double[] INPUT = {
                 12.0, 0.0,
                 12.0, 9.4,
@@ -426,7 +426,7 @@ class CalculatorLogicTest {
     void computeSingleLineRegressionFormula_listOfZeroPairs_throwException() {
         //preq-UNIT-TEST-6
         // Arrange
-        final String EXPECTED = "cannot divide by zero";
+        final String EXPECTED = "Error\ncannot divide by zero";
         final double[] VALUES = {
                 0.0, 0.0, 0.0, 0.0,
                 0.0, 0.0, 0.0, 0.0
@@ -472,7 +472,7 @@ class CalculatorLogicTest {
     void predictYFromLinearRegressionFormula_missingParameter_throwException() {
         //preq-UNIT-TEST-7
         // Arrange
-        final String EXPECTED = "Invalid input\n";
+        final String EXPECTED = "Input the values x, m, and b values, each separated by a comma";
         String xResult = "", mResult = "", bResult = "";
 
         // Act
@@ -504,7 +504,7 @@ class CalculatorLogicTest {
     @Test
     void predictYFromLinearRegressionFormula_emptyInput_throwException() {
         // Arrange
-        final String EXPECTED = "Invalid input\n";
+        final String EXPECTED = "Input the values x, m, and b values, each separated by a comma";
 
         String result = "";
 
