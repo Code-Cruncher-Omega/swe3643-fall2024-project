@@ -19,7 +19,7 @@ This entire project was completed in its entirety by myself, Eduardo Arellano, t
 ## Architecture
 The structure of the web app is split into four distinct modules, linked by a parent POM with some dependencies formed between submodules. These submodules consist of the logic, unit tests, web page, and end-to-end tests, where the web page and unit tests rely on logic, while the end-to-end tests rely on the web page. The web page itself takes on a Model, View, and Controller architecture; Views are handled by Thymeleaf through the Controller and the Model and Controller share a symbiotic relationship as well. The Model itself refers to the logic module's ability to translate inputs and perform computations that then returns back to the Controller. To give a better idea of the format of this project, here is a PlantUML generated diagram showcasing its inner-workings:
 
-<img src="src/assets/architectureDiagram.png" alt="architectureDiagram.png"/>
+<img src="architectureDiagram.png" alt="architectureDiagram.png"/>
 
 ## Environment
 This is a cross-platform application and should work in Windows 10+, Mac OSx Ventura+, and Linux environments. Note that the application has only been carefully tested in Windows 10 and Windows 11.
@@ -87,7 +87,7 @@ $ mvn test -pl tests
 ## Reviewing Unit Test Coverage
 Throughout the entirety of development, unit tests were designed with the primary focus to ensure that all statements and paths of the app's logic is fully tested and successful. Through the use of JetBrains' IDE coverage graphic tool, it has produced the following results regarding the app's logic:
 
-<img src="src/assets/coverageStatistics.png" alt="coverageStatistics.png"/>
+<img src="coverageStatistics.png" alt="coverageStatistics.png"/>
 
 ## Executing End-To-End Tests
 As mentioned earlier, Maven manages Playwright, so there's no need to manually configure the project for it to work. In addition, the end-to-end tests start the web app then ends it when its finished running, so its just as easy to run them as the unit tests, just run the following command in the /src/ folder:
