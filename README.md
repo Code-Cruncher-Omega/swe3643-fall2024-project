@@ -34,7 +34,7 @@ Playwright itself is already managed by Maven through POM files, so there should
 After setting up the environment for this project, the web application should now be runnable from the command line in the /src/ folder.
  1. From the command line (terminal / console), enter the directory of the project's /src/ folder. Do so by doing:
 ```bash
-$ cd <directory containing project file>/swe3643-fall2024-project/src
+$ cd <directory containing project folder>/swe3643-fall2024-project/src
 ```
  2. Next, start up spring-boot through the Maven command. Execute the command from the /src/ folder:
 ```bash
