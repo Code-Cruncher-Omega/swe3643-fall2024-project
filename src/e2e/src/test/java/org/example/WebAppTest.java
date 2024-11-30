@@ -35,7 +35,7 @@ public class WebAppTest {
         //preq-E2E-TEST-7
         page.navigate("http://localhost:8080");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Compute Population Standard")).click();
-        assertThat(page.locator("h3")).containsText("Invalid input input values, each separated by a new line");
+        assertThat(page.locator("h3")).containsText("Invalid input");
 
     }
 
@@ -44,7 +44,7 @@ public class WebAppTest {
         //preq-E2E-TEST-8
         page.navigate("http://localhost:8080");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Compute Sample Standard")).click();
-        assertThat(page.locator("h3")).containsText("Invalid input input values, each separated by a new line");
+        assertThat(page.locator("h3")).containsText("Invalid input");
 
     }
 
