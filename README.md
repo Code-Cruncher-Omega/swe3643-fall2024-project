@@ -1,6 +1,6 @@
 
 # KSU SWE 3643 Software Testing and Quality Assurance Semester Project: Web-Based Calculator
-As a part of my class, I was given the task to design, create, and test a project to showcase software quality assurance measures learned during the past semester. This repository expresses the culmination of said knowledge through a web application designed to calculate deviations and single line regression formulas. It also describes step-by-step as to how to run the web application, unit tests for its logic, and end-to-end web tests amongst other things, as well as providing imagery to assist in understanding the contents of this project.
+As a part of my class, I was given the task to design, create, and test a project to showcase software quality assurance measures learned during the past semester. This repository expresses the culmination of said knowledge through a web calculator that features the ability to calculate deviations and single line regression formulas amongst other calculations. It also describes step-by-step as to how to run the web application, unit tests for its logic, and end-to-end web tests amongst other things, as well as providing imagery to assist in understanding the contents of this project.
 
 ## Table of Contents
 
