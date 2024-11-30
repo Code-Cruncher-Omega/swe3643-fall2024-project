@@ -26,7 +26,7 @@ This is a cross-platform application and should work in Windows 10+, Mac OSx Ven
 
 To prepare your environment to execute this application:
  1. [Install the latest Java Development Kit for your system.](https://www.oracle.com/java/technologies/downloads/) This project utilized JDK 21 during development, so using this or a newer version will produce the best result when running this application.
- 2. [Install the latest Maven software project management and comprehension tool.](https://maven.apache.org/download.cgi) Dependency management is covered with Maven 3.9.9 in mind.
+ 2. [Install the latest Maven software project management and comprehension tool.](https://maven.apache.org/download.cgi) Dependency management was covered with Maven 3.9.9 in mind.
 
 Playwright itself is already managed by Maven through POM files, so there should be no need to configure it for end-to-end testing. Though, it is worth noting that this project starts up HTTP port 8080, so if there is already something on port 8080, running this application will not work and will instead result in some errors.
 
