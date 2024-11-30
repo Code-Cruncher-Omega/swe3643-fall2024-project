@@ -103,9 +103,7 @@ Throughout the entirety of development, unit tests were designed with the primar
 <img src="src/assets/coverageStatistics.png" alt="coverageStatistics.png"/>
 
 ## Executing End-To-End Tests
-As mentioned earlier, Maven manages Playwright, so there's no need to manually configure the project for it to work. For the end-to-end tests to function, the web application MUST be running during execution, other than that the tests can be run from the command line similar to running the unit tests.
- 1. [Start up the web application](#executing-the-web-application)
- 2. Then in another command line (terminal / console) instance, in the /src/ folder execute the end-to-end tests through maven. Done through the command:
+As mentioned earlier, Maven manages Playwright, so there's no need to manually configure the project for it to work. In addition, the end-to-end tests start the web app then ends it when its finished running, so its just as easy to run them as the unit tests, just run the following command in the /src/ folder:
 ```bash
 $ mvn test -pl e2e
 ```
