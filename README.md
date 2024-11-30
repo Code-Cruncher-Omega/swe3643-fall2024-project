@@ -112,14 +112,14 @@ The end-to-end tests should then execute and succeed, and for reference here is 
 $ mvn test -pl e2e
 
 [INFO] Scanning for projects...
-[INFO]
-[INFO] --------------< org.example:swe3643-fall2024-project-e2e >--------------
+[INFO] 
+[INFO] --------------< org.example:swe3643-fall2024-project-e2e >--------------    
 [INFO] Building swe3643-fall2024-project-e2e-1.0-SNAPSHOT 1.0-SNAPSHOT
 [INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO]
+[INFO] --------------------------------[ jar ]---------------------------------    
+[INFO] 
 [INFO] --- resources:3.3.1:resources (default-resources) @ swe3643-fall2024-project-e2e ---
-[INFO] skip non existing resourceDirectory \swe3643-fall2024\project\src\e2e\src\main\resources
+[INFO] skip non existing resourceDirectory \swe3643-fall2024-project\src\e2e\src\main\resources
 [INFO]
 [INFO] --- compiler:3.13.0:compile (default-compile) @ swe3643-fall2024-project-e2e ---
 [INFO] No sources to compile
@@ -129,16 +129,46 @@ $ mvn test -pl e2e
 [INFO]
 [INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ swe3643-fall2024-project-e2e ---
 [INFO] Recompiling the module because of changed source code.
-[INFO] Compiling 1 source file with javac [debug target 21] to target\test-classes
-[INFO]
-[INFO] --- surefire:3.2.5:test (default-test) @ swe3643-fall2024-project-e2e ---
+[INFO] Compiling 1 source file with javac [debug target 21] to target\test-classes 
+[INFO] 
+[INFO] --- surefire:3.3.0:test (default-test) @ swe3643-fall2024-project-e2e ---   
 [INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
-[INFO]
+[INFO] 
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running WebAppTest
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.768 s -- in WebAppTest
+[INFO] Running org.example.WebAppTest
+22:13:27.699 [main] INFO org.springframework.test.context.support.AnnotationConfigC
+ontextLoaderUtils -- Could not detect default configuration classes for test class 
+[org.example.WebAppTest]: WebAppTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:13:27.931 [main] INFO org.springframework.boot.test.context.SpringBootTestContex
+tBootstrapper -- Found @SpringBootConfiguration org.example.Application for test class org.example.WebAppTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2024-11-29T22:13:28.740-05:00  INFO 23028 --- [           main] org.example.WebAppT
+est                   : Starting WebAppTest using Java 21.0.4 with PID 23028
+2024-11-29T22:13:28.743-05:00  INFO 23028 --- [           main] org.example.WebAppT
+est                   : No active profile set, falling back to 1 default profile: "default"
+2024-11-29T22:13:30.621-05:00  INFO 23028 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-29T22:13:30.649-05:00  INFO 23028 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-29T22:13:30.779-05:00  INFO 23028 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-29T22:13:30.781-05:00  INFO 23028 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1998 ms
+2024-11-29T22:13:31.001-05:00  INFO 23028 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-29T22:13:32.086-05:00  INFO 23028 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-29T22:13:32.106-05:00  INFO 23028 --- [           main] org.example.WebAppTest                   : Started WebAppTest in 3.87 seconds (process running for 5.853)
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2024-11-29T22:13:43.966-05:00  INFO 23028 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-29T22:13:43.966-05:00  INFO 23028 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-29T22:13:43.968-05:00  INFO 23028 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.99 s -- in org.example.WebAppTest
 ```
 
 ## Final Video Presentation
