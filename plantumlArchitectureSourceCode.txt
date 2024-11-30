@@ -74,7 +74,7 @@ package "Calculator Web Server App" #lightblue
       + output(String values, String method, Model model) : String
    }
 
-   AppController --> Views : Handled by\nThymeleaf\nnot a tangible\nViews class
+   AppController --> Views : Handled by\nThymeleaf\nand Spring Boot,\nnot a tangible\nViews class
    AppController --> AppModel
    AppModel --> CalculatorLogic
    AppModel --> Interpreter
