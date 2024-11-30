@@ -1,10 +1,14 @@
+package org.example;
+
 import com.microsoft.playwright.junit.UsePlaywright;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.*;
-
 import org.junit.jupiter.api.*;
+import org.springframework.boot.test.context.SpringBootTest;
+
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @UsePlaywright
 public class WebAppTest {
 
@@ -61,8 +65,8 @@ public class WebAppTest {
         page.getByLabel("").click();
         page.getByLabel("").fill("5.5,7,3.060787652326");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Compute Z Score")).click();
-        assertThat(page.locator("h3")).containsText("-0.490069");    // expected value changed from -0.49007 to -0.490069 since logic doesn't round up
-        // and output would be considered incorrect despite being more accurate than expected
+        assertThat(page.locator("h3")).containsText("-0.490069");
+        // expected value changed from -0.49007 to -0.490069 since logic doesn't round up, plus this is more accurate
 
     }
 
