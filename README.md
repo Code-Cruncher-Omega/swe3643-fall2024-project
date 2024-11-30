@@ -31,18 +31,12 @@ To prepare your environment to execute this application:
 Playwright itself is already managed by Maven through POM files, so there should be no need to configure it for end-to-end testing. Though, it is worth noting that this project starts up HTTP port 8080, so if there is already something on port 8080, running this application will not work and will instead result in some errors.
 
 ## Executing the Web Application
-After setting up the environment for this project, the web application should now be runnable from the command line, but not before setting up the project itself.
+After setting up the environment for this project, the web application should now be runnable from the command line in the /src/ folder.
  1. From the command line (terminal / console), enter the directory of the project's /src/ folder. Do so by doing:
 ```bash
 $ cd <directory containing project file>/swe3643-fall2024-project/src
 ```
- 2. Next, download all dependencies and compile all files for the project through Maven. In the /src/ folder run:
-```bash
-$ mvn clean install
-```
- Note: There might be some build failiure which may pop up regarding failed tests for the e2e module, these are safe to ignore.
-
- 3. Lastly, start up spring-boot through the Maven command. Execute the command from the /src/ folder:
+ 2. Next, start up spring-boot through the Maven command. Execute the command from the /src/ folder:
 ```bash
 $ mvn spring-boot:run -pl web
 ```
@@ -52,19 +46,12 @@ $ mvn spring-boot:run -pl web
 The web application should now be running from the command line and should be accessible from the localhost site [http://localhost:8080](http://localhost:8080).
 
 ## Executing Unit Tests
-To execute unit tests for the application's calculator logic, it can easily be run from the command line.
- 1. If the project has not yet installed all dependencies or compiled its files, do so through the command:
-```bash
-$ mvn clean install
-```
- Note: This command must run in the /src/ folder of the project.
- 
-2. From the /src/ folder, execute the unit tests through maven. Done through the command:
+To execute unit tests for the application's calculator logic, it can easily be run from the command line. Simply run the following Maven command in the /src/ folder:
 ```bash
 $ mvn test -pl tests
 ```
 
-From here, the tests should run and all unit tests should succeed. Here is some sample output that would come from running the tests:
+From here, the tests should run and all should pass. Here is some sample output that would come from running the tests:
 ```bash
 $ mvn test -pl tests
 
