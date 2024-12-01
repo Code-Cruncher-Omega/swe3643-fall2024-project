@@ -59,6 +59,7 @@ class CalculatorLogicTest {
         // Act
         try {
             CalculatorLogic.computeSampleStandardDeviation(new double[] {1.0});
+            fail();
         } catch (Exception e) {
             result = e.getMessage();
         }
@@ -77,6 +78,7 @@ class CalculatorLogicTest {
         // Act
         try {
             CalculatorLogic.computeSampleStandardDeviation(new double[0]);
+            fail();
         } catch (Exception e) {
             result = e.getMessage();
         }
@@ -142,6 +144,7 @@ class CalculatorLogicTest {
         // Act
         try {
             CalculatorLogic.computePopulationStandardDeviation(new double[0]);
+            fail();
         } catch (Exception e) {
             result = e.getMessage();
         }
@@ -173,7 +176,7 @@ class CalculatorLogicTest {
     }
 
     @Test
-    void computeMean_emptyList_throwsException() {
+    void computeMean_emptyList_throwException() {
         //preq-UNIT-TEST-4
         // Arrange
         final String EXPECTED = "Input values, each separated by a new line";
