@@ -29,6 +29,7 @@ To prepare your environment to execute this application:
  2. [Install the latest Maven software project management and comprehension tool.](https://maven.apache.org/download.cgi) Dependency management was covered with Maven 3.9.9 in mind.
 
 Playwright itself is already managed by Maven through POM files, so there should be no need to configure it for end-to-end testing. Though, it is worth noting that this project starts up HTTP port 8080, so if there is already something on port 8080, running this application will not work and will instead result in some errors.
+
 After setting everything else up, before starting the web application, unit tests, or end-to-end tests, execute the following commands:
  1. Enter the directory of the project's /src/ folder from the command line (terminal / console):
 ```bash
