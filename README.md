@@ -100,6 +100,8 @@ As mentioned earlier, Maven manages Playwright, so there's no need to manually c
 ```bash
 $ mvn test -pl e2e
 ```
+Note: This won't work if something is occupying port 8080, as this test also starts up the app on this very port.
+
 The end-to-end tests should then execute and succeed, and for reference here is a sample output from running the tests:
 ```bash
 $ mvn test -pl e2e
