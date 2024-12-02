@@ -165,5 +165,6 @@ Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot lo
 ```
 
 ## Final Video Presentation
+Provided is a YouTube link that shows how to run the web application (after setting up the environment) and demonstrates its capabilities along with showing how to run tests. It also describes a bit of the architecture of the code itself rather than the project as whole, and acts as a guide to those who might struggle with starting up this app.
 
-
+[![Web App Demo](webAppDemoThumbnail.png)](https://youtu.be/l_82Vig7bNk)
