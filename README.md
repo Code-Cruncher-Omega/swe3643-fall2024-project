@@ -29,24 +29,29 @@ To prepare your environment to execute this application:
  2. [Install the latest Maven software project management and comprehension tool.](https://maven.apache.org/download.cgi) Dependency management was covered with Maven 3.9.9 in mind.
 
 Playwright itself is already managed by Maven through POM files, so there should be no need to configure it for end-to-end testing. Though, it is worth noting that this project starts up HTTP port 8080, so if there is already something on port 8080, running this application will not work and will instead result in some errors.
-
-## Executing the Web Application
-After setting up the environment for this project, the web application should now be runnable from the command line in the /src/ folder.
- 1. From the command line (terminal / console), enter the directory of the project's /src/ folder. Do so by doing:
+After setting everything else up, before starting the web application, unit tests, or end-to-end tests, execute the following commands:
+ 1. Enter the directory of the project's /src/ folder from the command line (terminal / console):
 ```bash
 $ cd <directory containing project folder>/swe3643-fall2024-project/src
 ```
- 2. Next, start up spring-boot through the Maven command. Execute the command from the /src/ folder:
+ 2. From here enter the Maven command:
+```bash
+$ mvn clean install
+```
+This will compile the code and install all required dependencies for the software to run; without running this command, there will be errors while running commands to start up the application
+
+## Executing the Web Application
+After setting up the environment for this project, the web application should now be runnable from the command line (terminal / console), simply enter the following Maven command in the /src/ folder:
 ```bash
 $ mvn spring-boot:run -pl web
 ```
 
- Note: As previously mentioned, if port 8080 is already occupied, running the project will fail, so make sure the port is vacant and rerun the command mentioned in step 3 in /src/ to retry.
+ Note: As previously mentioned, if port 8080 is already occupied, running the project will fail, so make sure the port is vacant and rerun the command in /src/ to retry.
  
-The web application should now be running from the command line and should be accessible from the localhost site [http://localhost:8080](http://localhost:8080).
+The web application should now be running from the command line (terminal / console) and should be accessible from the localhost site [http://localhost:8080](http://localhost:8080).
 
 ## Executing Unit Tests
-To execute unit tests for the application's calculator logic, it can easily be run from the command line. Simply run the following Maven command in the /src/ folder:
+To execute unit tests for the application's calculator logic, it can easily be run from the command line (terminal / console). Simply run the following Maven command in the /src/ folder:
 ```bash
 $ mvn test -pl tests
 ```
@@ -90,7 +95,7 @@ Throughout the entirety of development, unit tests were designed with the primar
 <img src="coverageStatistics.png" alt="coverageStatistics.png"/>
 
 ## Executing End-To-End Tests
-As mentioned earlier, Maven manages Playwright, so there's no need to manually configure the project for it to work. In addition, the end-to-end tests start the web app then ends it when its finished running, so its just as easy to run them as the unit tests, just run the following command in the /src/ folder:
+As mentioned earlier, Maven manages Playwright, so there's no need to manually configure the project for it to work. In addition, the end-to-end tests start the web app then ends it when its finished running, so its just as easy to run them as the unit tests, just run in the command line (terminal / console) from the /src/ folder:
 ```bash
 $ mvn test -pl e2e
 ```
